@@ -1,0 +1,127 @@
+<!-- main-area -->
+<main>
+
+  <!-- breadcrumb-area -->
+  <section class="breadcrumb-area breadcrumb-bg" data-background="assets/img/bg/breadcrumb_bg.jpg" style="background-image: url('assets/img/bg/breadcrumb_bg.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="breadcrumb-content text-center">
+            <h2>My-Account</h2>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">My Account</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- breadcrumb-area-end -->
+
+
+  <!-- my-account-area -->
+  <section class="my-account-area pattern-bg pt-100 pb-100" data-background="assets/img/bg/pattern_bg.jpg">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-10">
+          <div class="login-page-title">
+            <h2 class="title"><span>Login</span> / Register</h2>
+          </div>
+          <div class="my-account-bg" data-background="assets/img/bg/my_account_bg.png" style="background-image:url('assets/img/bg/my_account_bg.png')">
+            <div class="my-account-content">
+              <p>Welcome in medicazone Please Login Your <span>Account</span></p>
+              <div class="direct-login">
+                <a href="#"><i class="fab fa-facebook-f"></i>Login with facebook</a>
+                <a href="#" class="xing"><i class="fab fa-xing"></i>Login with xing</a>
+              </div>
+              <span class="or">- OR -</span>
+              <form  [formGroup]="loginForm" (ngSubmit)="loginSubmit(loginForm)" class="login-form">
+                <div class="form-grp">
+                  <label  for="email">EMAIL ADDRESS <span>*</span></label>
+                  <input formControlName="email" type="text" id="email" class="rounded">
+
+
+                  <div class="alert p-0"
+                       *ngIf="loginForm.get('email')?.errors != null && loginForm.get('email')?.['touched']">
+                    <div class="invalid-feedback d-block"
+                         *ngIf="loginForm.get('email')?.errors?.['email']">
+                      enter real email.
+                    </div>
+                    <div class="invalid-feedback d-block" *ngIf="loginForm.get('email')?.errors?.['required']">
+                      email is required.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-grp">
+                  <label for="password">PASSWORD <span>*</span></label>
+                  <p-password class="w-100"  formControlName="password" type="password" id="password" [toggleMask]="true"></p-password>
+<!--                  <i class="far fa-eye"></i>-->
+
+
+                  <div class="alert p-0"
+                       *ngIf="loginForm.get('password')?.errors != null && loginForm.get('password')?.touched">
+                    <div class="invalid-feedback d-block"
+                         *ngIf="loginForm.get('password')?.errors?.['required']">
+                      password is required.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-grp-bottom">
+                  <div class="remember">
+                    <input type="checkbox" id="check">
+                    <label for="check">Remember me</label>
+                  </div>
+                  <div class="forget-pass">
+                    <a href="#">forgot password</a>
+                  </div>
+                </div>
+                <div class="form-grp-btn">
+                  <input type="submit" class="btn text-white rounded" [disabled]="loginForm.invalid">
+                  <a routerLink="/register" class="btn">Sign up</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- my-account-area-end -->
+
+  <!-- limited-offer-area -->
+  <section class="limited-offer-area" data-background="assets/img/bg/limited_offer_bg.jpg">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-xl-5 col-lg-6 col-md-7">
+          <div class="limited-offer-left">
+            <div class="limited-offer-title">
+              <span class="sub-title">exclusive offer</span>
+              <h2 class="title">Smart Watch Bracelet</h2>
+            </div>
+            <div class="limited-offer-disc">
+              <img src="assets/img/images/limited_offer_discount.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-5">
+          <div class="limited-offer-action">
+            <a href="#" class="btn">limited time offer</a>
+            <div class="amount-info">
+              <span class="upto">UPTO</span>
+              <span class="amount">$ 50.00</span>
+              <span class="off">OFF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2 class="limited-overlay-title">Vanam Top Sale 35<span>%</span></h2>
+    <div class="limited-overlay-img"><img src="assets/img/images/limited_offer_img.png" alt=""></div>
+  </section>
+  <!-- limited-offer-area-end -->
+
+</main>
+<!-- main-area-end -->
