@@ -28,6 +28,8 @@ import { BlogDetailsComponent } from './components/blog-details/blog-details.com
 import {HttpClientModule} from "@angular/common/http";
 import {ToastModule} from 'primeng/toast';
 import { ContactComponent } from './components/contact/contact.component';
+import {ButtonModule} from 'primeng/button';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { ContactComponent } from './components/contact/contact.component';
     ReactiveFormsModule,
     PasswordModule,
     ToastModule,
+    ButtonModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

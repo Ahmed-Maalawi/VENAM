@@ -1,6 +1,5 @@
 <!-- main-area -->
 <main>
-
   <!-- slider-area -->
   <section class="third-slider-area" data-background="assets/img/slider/slider_bg.jpg">
     <div class="custom-container-two">
@@ -247,15 +246,17 @@
             <div class="col-12">
 <!--              <div>Some tags before</div>-->
               <owl-carousel-o [options]="dealOfTheDay">
-                <ng-template carouselSlide>
+                <ng-template carouselSlide *ngFor="let item of hotDealsArr">
                   <div class="most-popular-viewed-item mb-30">
                     <div class="viewed-item-top">
                       <div class="most--popular--item--thumb mb-20">
-                        <a href="shop-details.html"><img data-src="assets/img/product/most_popular_01.jpg" src="assets/img/product/most_popular_01.jpg" alt=""></a>
+                        <a [routerLink]="['/product-details', item.id ]">
+                          <img data-src="{{ imgPrefix + item.product_thambnail }}" src="assets/img/product/most_popular_01.jpg" alt="">
+                        </a>
                       </div>
                       <div class="super-deal-content">
-                        <h6><a href="shop-details.html">Vacuum Cleaner</a></h6>
-                        <p>US $ 49.00<span>"{{" 50% off "}}"</span></p>
+                        <h6><a href="shop-details.html">{{ item.product_name_en }}</a></h6>
+                        <p>EGP {{ item.discount_price}}<span>"{{" 50% off "}}"</span></p>
                       </div>
                     </div>
                     <div class="viewed-item-bottom">
@@ -274,114 +275,114 @@
                     </div>
                   </div>
                 </ng-template>
-                <ng-template carouselSlide>
-                  <div class="most-popular-viewed-item mb-30">
-                    <div class="viewed-item-top">
-                      <div class="most--popular--item--thumb mb-20">
-                        <a href="shop-details.html"><img data-src="assets/img/product/most_popular_02.jpg" src="assets/img/product/most_popular_02.jpg" alt=""></a>
-                      </div>
-                      <div class="super-deal-content">
-                        <h6><a href="shop-details.html">Stylish Smart Watch</a></h6>
-                        <p>US $ 17.00<span>"{{" 50% off "}}"</span></p>
-                      </div>
-                    </div>
-                    <div class="viewed-item-bottom">
-                      <ul>
-                        <li>Total Sold : 35</li>
-                        <li>Stocks : 3456</li>
-                      </ul>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0"
-                             aria-valuemax="100"></div>
-                      </div>
-                      <div class="viewed-offer-time">
-                        <p><span>Hurry Up</span> Limited Time Offer</p>
-                        <div class="coming-time" data-countdown="2020/9/15"></div>
-                      </div>
-                    </div>
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="most-popular-viewed-item mb-30">
-                    <div class="viewed-item-top">
-                      <div class="most--popular--item--thumb mb-20">
-                        <a href="shop-details.html"><img data-src="assets/img/product/most_popular_03.jpg" src="assets/img/product/most_popular_03.jpg" alt=""></a>
-                      </div>
-                      <div class="super-deal-content">
-                        <h6><a href="shop-details.html">Fashion Party Dress</a></h6>
-                        <p>US $ 17.00<span>"{{" 50% off "}}"</span></p>
-                      </div>
-                    </div>
-                    <div class="viewed-item-bottom">
-                      <ul>
-                        <li>Total Sold : 35</li>
-                        <li>Stocks : 3456</li>
-                      </ul>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 55%;" aria-valuenow="35" aria-valuemin="0"
-                             aria-valuemax="100"></div>
-                      </div>
-                      <div class="viewed-offer-time">
-                        <p><span>Hurry Up</span> Limited Time Offer</p>
-                        <div class="coming-time" data-countdown="2020/9/11"></div>
-                      </div>
-                    </div>
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="most-popular-viewed-item mb-30">
-                    <div class="viewed-item-top">
-                      <div class="most--popular--item--thumb mb-20">
-                        <a href="shop-details.html"><img data-src="assets/img/product/most_popular_01.jpg"  src="assets/img/product/most_popular_01.jpg" alt=""></a>
-                      </div>
-                      <div class="super-deal-content">
-                        <h6><a href="shop-details.html">Vacuum Fashion Bag</a></h6>
-                        <p>US $ 31.00<span>"{{" 50% off "}}"</span></p>
-                      </div>
-                    </div>
-                    <div class="viewed-item-bottom">
-                      <ul>
-                        <li>Total Sold : 35</li>
-                        <li>Stocks : 3456</li>
-                      </ul>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="35" aria-valuemin="0"
-                             aria-valuemax="100"></div>
-                      </div>
-                      <div class="viewed-offer-time">
-                        <p><span>Hurry Up</span> Limited Time Offer</p>
-                        <div class="coming-time" data-countdown="2020/9/9"></div>
-                      </div>
-                    </div>
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="most-popular-viewed-item mb-30">
-                    <div class="viewed-item-top">
-                      <div class="most--popular--item--thumb mb-20">
-                        <a href="shop-details.html"><img data-src="" src="assets/img/product/most_popular_02.jpg" alt=""></a>
-                      </div>
-                      <div class="super-deal-content">
-                        <h6><a href="shop-details.html">Stylish Smart Watch</a></h6>
-                        <p>US $ 17.00<span>"{{" 50% off "}}"</span></p>
-                      </div>
-                    </div>
-                    <div class="viewed-item-bottom">
-                      <ul>
-                        <li>Total Sold : 35</li>
-                        <li>Stocks : 3456</li>
-                      </ul>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0"
-                             aria-valuemax="100"></div>
-                      </div>
-                      <div class="viewed-offer-time">
-                        <p><span>Hurry Up</span> Limited Time Offer</p>
-                        <div class="coming-time" data-countdown="2020/9/15"></div>
-                      </div>
-                    </div>
-                  </div>
-                </ng-template>
+<!--                <ng-template carouselSlide>-->
+<!--                  <div class="most-popular-viewed-item mb-30">-->
+<!--                    <div class="viewed-item-top">-->
+<!--                      <div class="most&#45;&#45;popular&#45;&#45;item&#45;&#45;thumb mb-20">-->
+<!--                        <a href="shop-details.html"><img data-src="assets/img/product/most_popular_02.jpg" src="assets/img/product/most_popular_02.jpg" alt=""></a>-->
+<!--                      </div>-->
+<!--                      <div class="super-deal-content">-->
+<!--                        <h6><a href="shop-details.html">Stylish Smart Watch</a></h6>-->
+<!--                        <p>US $ 17.00<span>"{{" 50% off "}}"</span></p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="viewed-item-bottom">-->
+<!--                      <ul>-->
+<!--                        <li>Total Sold : 35</li>-->
+<!--                        <li>Stocks : 3456</li>-->
+<!--                      </ul>-->
+<!--                      <div class="progress">-->
+<!--                        <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0"-->
+<!--                             aria-valuemax="100"></div>-->
+<!--                      </div>-->
+<!--                      <div class="viewed-offer-time">-->
+<!--                        <p><span>Hurry Up</span> Limited Time Offer</p>-->
+<!--                        <div class="coming-time" data-countdown="2020/9/15"></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </ng-template>-->
+<!--                <ng-template carouselSlide>-->
+<!--                  <div class="most-popular-viewed-item mb-30">-->
+<!--                    <div class="viewed-item-top">-->
+<!--                      <div class="most&#45;&#45;popular&#45;&#45;item&#45;&#45;thumb mb-20">-->
+<!--                        <a href="shop-details.html"><img data-src="assets/img/product/most_popular_03.jpg" src="assets/img/product/most_popular_03.jpg" alt=""></a>-->
+<!--                      </div>-->
+<!--                      <div class="super-deal-content">-->
+<!--                        <h6><a href="shop-details.html">Fashion Party Dress</a></h6>-->
+<!--                        <p>US $ 17.00<span>"{{" 50% off "}}"</span></p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="viewed-item-bottom">-->
+<!--                      <ul>-->
+<!--                        <li>Total Sold : 35</li>-->
+<!--                        <li>Stocks : 3456</li>-->
+<!--                      </ul>-->
+<!--                      <div class="progress">-->
+<!--                        <div class="progress-bar" role="progressbar" style="width: 55%;" aria-valuenow="35" aria-valuemin="0"-->
+<!--                             aria-valuemax="100"></div>-->
+<!--                      </div>-->
+<!--                      <div class="viewed-offer-time">-->
+<!--                        <p><span>Hurry Up</span> Limited Time Offer</p>-->
+<!--                        <div class="coming-time" data-countdown="2020/9/11"></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </ng-template>-->
+<!--                <ng-template carouselSlide>-->
+<!--                  <div class="most-popular-viewed-item mb-30">-->
+<!--                    <div class="viewed-item-top">-->
+<!--                      <div class="most&#45;&#45;popular&#45;&#45;item&#45;&#45;thumb mb-20">-->
+<!--                        <a href="shop-details.html"><img data-src="assets/img/product/most_popular_01.jpg"  src="assets/img/product/most_popular_01.jpg" alt=""></a>-->
+<!--                      </div>-->
+<!--                      <div class="super-deal-content">-->
+<!--                        <h6><a href="shop-details.html">Vacuum Fashion Bag</a></h6>-->
+<!--                        <p>US $ 31.00<span>"{{" 50% off "}}"</span></p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="viewed-item-bottom">-->
+<!--                      <ul>-->
+<!--                        <li>Total Sold : 35</li>-->
+<!--                        <li>Stocks : 3456</li>-->
+<!--                      </ul>-->
+<!--                      <div class="progress">-->
+<!--                        <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="35" aria-valuemin="0"-->
+<!--                             aria-valuemax="100"></div>-->
+<!--                      </div>-->
+<!--                      <div class="viewed-offer-time">-->
+<!--                        <p><span>Hurry Up</span> Limited Time Offer</p>-->
+<!--                        <div class="coming-time" data-countdown="2020/9/9"></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </ng-template>-->
+<!--                <ng-template carouselSlide>-->
+<!--                  <div class="most-popular-viewed-item mb-30">-->
+<!--                    <div class="viewed-item-top">-->
+<!--                      <div class="most&#45;&#45;popular&#45;&#45;item&#45;&#45;thumb mb-20">-->
+<!--                        <a href="shop-details.html"><img data-src="" src="assets/img/product/most_popular_02.jpg" alt=""></a>-->
+<!--                      </div>-->
+<!--                      <div class="super-deal-content">-->
+<!--                        <h6><a href="shop-details.html">Stylish Smart Watch</a></h6>-->
+<!--                        <p>US $ 17.00<span>"{{" 50% off "}}"</span></p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="viewed-item-bottom">-->
+<!--                      <ul>-->
+<!--                        <li>Total Sold : 35</li>-->
+<!--                        <li>Stocks : 3456</li>-->
+<!--                      </ul>-->
+<!--                      <div class="progress">-->
+<!--                        <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0"-->
+<!--                             aria-valuemax="100"></div>-->
+<!--                      </div>-->
+<!--                      <div class="viewed-offer-time">-->
+<!--                        <p><span>Hurry Up</span> Limited Time Offer</p>-->
+<!--                        <div class="coming-time" data-countdown="2020/9/15"></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </ng-template>-->
               </owl-carousel-o>
 <!--              <div>Some tags after</div>-->
             </div>
@@ -679,8 +680,8 @@
       </div>
       <div class="row testimonial-active">
         <div class="col-12">
-          <div>Some tags before</div>
-          <owl-carousel-o [options]="customOptions">
+<!--          <div>Some tags before</div>-->
+          <owl-carousel-o [options]="testimonial">
             <ng-template carouselSlide>
               <div class="testimonial-item text-center">
                 <div class="testi-avatar-img mb-20 mx-auto w-25">
@@ -770,7 +771,7 @@
               </div>
             </ng-template>
           </owl-carousel-o>
-          <div>Some tags after</div>
+<!--          <div>Some tags after</div>-->
         </div>
 <!--        <div class="col-xl-4">-->
 <!--          -->

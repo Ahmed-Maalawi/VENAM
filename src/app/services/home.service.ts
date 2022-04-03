@@ -15,6 +15,10 @@ export class HomeService {
     return this._HttpClient.get('https://medicazone.online/api/zone/sliders');
   }
 
+  getHotDeals(): Observable<any>
+  {
+    return this._HttpClient.get('https://medicazone.online/api/zone/hotdeals')
+  }
 }
 
 

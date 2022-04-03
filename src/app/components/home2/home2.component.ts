@@ -11,17 +11,27 @@ export class Home2Component implements OnInit {
   constructor(private _HomeService:HomeService) {
     this._HomeService.getProduct().subscribe((res) => {
       console.log(res);
-    })
+    });
+
+    this.getHotDeals();
   }
 
   ngOnInit(): void {
 
   }
+  imgPrefix:string = 'https://medicazone.online/';
+  hotDealsArr: any;
 
-  // hotDealsArr: any;
+  getHotDeals() {
+    this._HomeService.getHotDeals().subscribe(res => {
+      this.hotDealsArr = res.data;
+      console.log(this.hotDealsArr);
+    }, error => {
 
-
-  customOptions: OwlOptions = {
+      console.log('test')
+    });
+  }
+  testimonial: OwlOptions = {
     loop: true,
     mouseDrag: true,
     touchDrag: true,
