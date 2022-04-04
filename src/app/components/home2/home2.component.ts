@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HomeService} from "../../services/home.service";
-import {OwlOptions} from "ngx-owl-carousel-o";
+import { HomeService } from "../../services/home.service";
+import { OwlOptions } from "ngx-owl-carousel-o";
 @Component({
   selector: 'app-home2',
   templateUrl: './home2.component.html',
@@ -8,14 +8,26 @@ import {OwlOptions} from "ngx-owl-carousel-o";
 })
 export class Home2Component implements OnInit {
 
-  constructor(private _HomeService:HomeService) {
+
+
+
+  imgPrefix: string = "http://medicazone.online/";
+  newArrivals: any[] = [];
+  bestSeller: any[] = [];
+  hotDeals: any = [];
+
+  constructor(private _HomeService: HomeService) {
     this._HomeService.getProduct().subscribe((res) => {
       console.log(res);
     })
+
   }
+  
 
   ngOnInit(): void {
-
+    this._HomeService.getHotDeals().subscribe((response) => {
+      this.hotDeals = response.data;
+    })
   }
 
   // hotDealsArr: any;
@@ -80,4 +92,5 @@ export class Home2Component implements OnInit {
     nav: false
   }
 
+  
 }

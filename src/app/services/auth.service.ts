@@ -46,23 +46,7 @@ export class AuthService {
     return this._HttpClient.get('https://medicazone.online/api/zone/sliders')
   };
 
-  newArriivals():Observable<any>
-  {
-    return this._HttpClient.get('https://medicazone.online/api/zone/hotdeals')
-  }
 
-  // get featured
-  // ------------------
-  getFeatured(): Observable <any>
-  {
-    return this._HttpClient.get('https://medicazone.online/api/zone/featured');
-  }
-
-  getCategory(): Observable <any>
-  {
-
-    return this._HttpClient.get('https://medicazone.online/api/zone/subsubcategory/product/8/sneakers-man')
-  }
 
   isLoggedIn():boolean
   {

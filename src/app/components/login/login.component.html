@@ -2,7 +2,8 @@
 <main>
 
   <!-- breadcrumb-area -->
-  <section class="breadcrumb-area breadcrumb-bg" data-background="assets/img/bg/breadcrumb_bg.jpg" style="background-image: url('assets/img/bg/breadcrumb_bg.jpg')">
+  <section class="breadcrumb-area breadcrumb-bg" data-background="assets/img/bg/breadcrumb_bg.jpg"
+    style="background-image: url('assets/img/bg/breadcrumb_bg.jpg')">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -10,7 +11,7 @@
             <h2>My-Account</h2>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a routerLink="/home2">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">My Account</li>
               </ol>
             </nav>
@@ -30,7 +31,8 @@
           <div class="login-page-title">
             <h2 class="title"><span>Login</span> / Register</h2>
           </div>
-          <div class="my-account-bg" data-background="assets/img/bg/my_account_bg.png" style="background-image:url('assets/img/bg/my_account_bg.png')">
+          <div class="my-account-bg" data-background="assets/img/bg/my_account_bg.png"
+            style="background-image:url('assets/img/bg/my_account_bg.png')">
             <div class="my-account-content">
               <p>Welcome in medicazone Please Login Your <span>Account</span></p>
               <div class="direct-login">
@@ -38,16 +40,15 @@
                 <a href="#" class="xing"><i class="fab fa-xing"></i>Login with xing</a>
               </div>
               <span class="or">- OR -</span>
-              <form  [formGroup]="loginForm" (ngSubmit)="loginSubmit(loginForm)" class="login-form">
+              <form [formGroup]="loginForm" (ngSubmit)="loginSubmit(loginForm)" class="login-form">
                 <div class="form-grp">
-                  <label  for="email">EMAIL ADDRESS <span>*</span></label>
+                  <label for="email">EMAIL ADDRESS <span>*</span></label>
                   <input formControlName="email" type="text" id="email" class="rounded">
 
 
                   <div class="alert p-0"
-                       *ngIf="loginForm.get('email')?.errors != null && loginForm.get('email')?.['touched']">
-                    <div class="invalid-feedback d-block"
-                         *ngIf="loginForm.get('email')?.errors?.['email']">
+                    *ngIf="loginForm.get('email')?.errors != null && loginForm.get('email')?.['touched']">
+                    <div class="invalid-feedback d-block" *ngIf="loginForm.get('email')?.errors?.['email']">
                       enter real email.
                     </div>
                     <div class="invalid-feedback d-block" *ngIf="loginForm.get('email')?.errors?.['required']">
@@ -57,14 +58,14 @@
                 </div>
                 <div class="form-grp">
                   <label for="password">PASSWORD <span>*</span></label>
-                  <p-password class="w-100"  formControlName="password" type="password" id="password" [toggleMask]="true"></p-password>
-<!--                  <i class="far fa-eye"></i>-->
+                  <p-password class="w-100" formControlName="password" type="password" id="password"
+                    [toggleMask]="true"></p-password>
+                  <!--                  <i class="far fa-eye"></i>-->
 
 
                   <div class="alert p-0"
-                       *ngIf="loginForm.get('password')?.errors != null && loginForm.get('password')?.touched">
-                    <div class="invalid-feedback d-block"
-                         *ngIf="loginForm.get('password')?.errors?.['required']">
+                    *ngIf="loginForm.get('password')?.errors != null && loginForm.get('password')?.touched">
+                    <div class="invalid-feedback d-block" *ngIf="loginForm.get('password')?.errors?.['required']">
                       password is required.
                     </div>
                   </div>

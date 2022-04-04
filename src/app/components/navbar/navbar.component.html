@@ -424,7 +424,11 @@
 
 
 <!------------------------------------------------------------------------->
+
 <!-- header-area-->
+
+
+
 <header class="header-style-two header-style-three">
 
   <!-- header-top -->
@@ -522,19 +526,19 @@
 <!--                      <li class="active"><a href="index-3.html">Home Three</a></li>-->
 <!--                    </ul>-->
                   </li>
-                  <li><a routerLink="about">About Us</a></li>
-                  <li class="dropdown"><a href="#">PAGES</a>
+                  <li><a routerLink="/about">About Us</a></li>
+                  <li class="dropdown"><a routerLink="/">PAGES</a>
                     <ul class="submenu">
-                      <li><a href="my-account.html">My Account</a></li>
-                      <li><a href="404.html">404 Page</a></li>
-                      <li><a href="terms-conditios.html">Terms and Conditions</a></li>
+                      <li><a routerLink="my-account.html">My Account</a></li>
+                      <li><a routerLink="404.html">404 Page</a></li>
+                      <li><a routerLink="terms-conditios.html">Terms and Conditions</a></li>
                     </ul>
                   </li>
-                  <li class="dropdown"><a href="#">BLOG</a>
+                  <li class="dropdown"><a routerLink="/blog">BLOG</a>
                     <ul class="submenu">
-                      <li><a href="blog.html">Standard Blog</a></li>
-                      <li><a href="blog-classic.html">Classic Blog</a></li>
-                      <li><a href="blog-details.html">Blog Details</a></li>
+                      <li><a routerLink="blog.html">Standard Blog</a></li>
+                      <li><a routerLink="blog-classic.html">Classic Blog</a></li>
+                      <li><a routerLink="blog-details.html">Blog Details</a></li>
                     </ul>
                   </li>
                   <li class="dropdown"><a routerLink="shop">SHOP</a>
@@ -658,11 +662,14 @@
       <div class="row align-items-center">
         <div class="col-xl-3 col-lg-4 d-none d-lg-block">
           <div class="header-category d-none d-lg-block">
-            <a href="#" class="cat-toggle"><i class="flaticon-menu"></i>ALL DEPARTMENT</a>
+            <a href="#" class="cat-toggle">
+              <i class="flaticon-menu"></i>ALL DEPARTMENT
+            </a>
             <ul class="category-menu">
               <li class="has-dropdown"><a href="#"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img01.png" alt=""></div> Western woman</a>
                 <ul class="mega-menu">
                   <li>
+                    
                     <ul>
                       <li class="dropdown-title">Accessories & Parts</li>
                       <li><a href="#">Cables & Adapters</a></li>

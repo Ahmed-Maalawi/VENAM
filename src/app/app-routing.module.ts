@@ -16,7 +16,7 @@ import { BlogComponent } from "./components/blog/blog.component";
 import { ContactComponent } from "./components/contact/contact.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home2', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'home2', component: Home2Component },
   { path: 'login', component: LoginComponent },
