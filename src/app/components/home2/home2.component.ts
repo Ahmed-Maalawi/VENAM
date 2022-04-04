@@ -29,18 +29,24 @@ export class Home2Component implements OnInit {
     
     this._HomeService.getHotDeals().subscribe((response) => {
       this.hotDeals = response.data;
+      
+    })
+    this._HomeService.getFeatured().subscribe((response)=>
+    {
+      this.newArrivals= response.data
     })
   }
 
-  getHotDeals() {
-    this._HomeService.getHotDeals().subscribe((response) => {
-      this.hotDeals= response.data;
-      console.log(this.hotDeals);
-    }, error => {
+  // getHotDeals() {
+  //   this._HomeService.getHotDeals().subscribe((response) => {
+  //     this.hotDeals= response.data;
+  //     console.log(this.hotDeals);
+  //   }, error => {
 
-      console.log('test')
-    });
-  }
+  //     console.log('test')
+  //   });
+  // }
+
   testimonial: OwlOptions = {
     loop: true,
     mouseDrag: true,

@@ -19,10 +19,7 @@ export class HomeService {
   {
     return this._HttpClient.get('http://medicazone.online/api/zone/hotdeals');
   }
-  newArriivals():Observable<any>
-  {
-    return this._HttpClient.get('https://medicazone.online/api/zone/hotdeals')
-  }
+  
 
   // get featured
   // ------------------

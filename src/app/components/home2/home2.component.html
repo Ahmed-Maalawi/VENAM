@@ -32,14 +32,16 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <!-- <div class="col-xl-4 col-md-6 col-sm-10"  *ngFor="let offer of hotDeals">
+     
+        <div class="col-xl-4 col-md-6 col-sm-10"  *ngFor="let offer of hotDeals">
           <div class="slider-bottom-product list-product-item mb-30">
             <div class="list-product-thumb">
               <a href="shop-details.html">
-                <img [src]="imgPrefix+offer.product_thambnail" alt="">
+
+                <img [src]="imgPrefix+offer.product_thambnail" class="w-50" alt="">
               </a>
             </div>
-            <div class="list-product-content">
+            <div class="list-product-content p-1">
               <h6><a href="shop-details.html">{{offer.product_name_en}}</a></h6>
               <p>US $ 17.29<span> 50% off </span></p>
               <div class="rating">
@@ -52,13 +54,15 @@
             </div>
           </div>
         </div>
-       -->
+      
       
       
         <div class="col-xl-4 col-md-6 col-sm-10">
           <div class="slider-bottom-product list-product-item mb-30">
             <div class="list-product-thumb">
-              <a href="shop-details.html"><img src="assets/img/product/slider_bottom_product02.jpg" alt=""></a>
+              <a href="shop-details.html">
+                <img src="assets/img/product/slider_bottom_product02.jpg" alt="">
+              </a>
             </div>
             <div class="list-product-content">
               <h6><a href="shop-details.html">Headphone Bit 3003</a></h6>
@@ -108,12 +112,12 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-xl-3 col-md-4 col-sm-6">
+        <div class="col-xl-3 col-md-4 col-sm-6" *ngFor="let offer of newArrivals">
           <div class="exclusive-item exclusive-item-three text-center mb-40">
             <div class="exclusive-item-thumb">
               <a href="shop-details.html">
-                <img src="assets/img/product/t_exclusive_product01.jpg" alt="">
-                <img class="overlay-product-thumb" src="assets/img/product/td_product_img04.jpg" alt="">
+                <img [src]="imgPrefix+offer.product_thambnail" alt="">
+                <img class="overlay-product-thumb" [src]="imgPrefix+offer.product_thambnail" alt="">
               </a>
               <ul class="action">
                 <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
@@ -122,9 +126,9 @@
               </ul>
             </div>
             <div class="exclusive-item-content">
-              <h5><a href="shop-details.html">Woman Lathers Jacket</a></h5>
+              <h5><a href="shop-details.html">{{offer.product_name_en}}</a></h5>
               <div class="exclusive--item--price">
-                <del class="old-price">$69.00</del>
+                <del class="old-price">${{offer.selling_price}}</del>
                 <span class="new-price">$58.00</span>
               </div>
               <div class="rating">
@@ -137,7 +141,9 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-md-4 col-sm-6">
+     
+     
+        <!-- <div class="col-xl-3 col-md-4 col-sm-6">
           <div class="exclusive-item exclusive-item-three text-center mb-40">
             <div class="exclusive-item-thumb">
               <a href="shop-details.html">
@@ -223,7 +229,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -249,9 +255,10 @@
           </div>
           <div class="row deal-day-active">
             <div class="col-12">
-<!--              <div>Some tags before</div>-->
+            
+              <!--<div>Some tags before</div>-->
               <owl-carousel-o [options]="dealOfTheDay">
-                <ng-template carouselSlide *ngFor="let item of hotDealsArr">
+                <ng-template carouselSlide *ngFor="let item of hotDeals">
                   <div class="most-popular-viewed-item mb-30">
                     <div class="viewed-item-top">
                       <div class="most--popular--item--thumb mb-20">
@@ -457,7 +464,7 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-xl-3 col-md-4 col-sm-6">
+        <div class="col-xl-3 col-md-4 col-sm-6"  >
           <div class="exclusive-item exclusive-item-three text-center mb-40">
             <div class="exclusive-item-thumb">
               <a href="shop-details.html">
@@ -486,7 +493,9 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-md-4 col-sm-6">
+
+
+        <!-- <div class="col-xl-3 col-md-4 col-sm-6">
           <div class="exclusive-item exclusive-item-three text-center mb-40">
             <div class="exclusive-item-thumb">
               <a href="shop-details.html">
@@ -572,7 +581,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
+
+
       </div>
     </div>
   </section>
