@@ -25,15 +25,23 @@ export class Home2Component implements OnInit {
   
 
   ngOnInit(): void {
+
+    
     this._HomeService.getHotDeals().subscribe((response) => {
       this.hotDeals = response.data;
     })
   }
 
-  // hotDealsArr: any;
+  getHotDeals() {
+    this._HomeService.getHotDeals().subscribe((response) => {
+      this.hotDeals= response.data;
+      console.log(this.hotDeals);
+    }, error => {
 
-
-  customOptions: OwlOptions = {
+      console.log('test')
+    });
+  }
+  testimonial: OwlOptions = {
     loop: true,
     mouseDrag: true,
     touchDrag: true,
