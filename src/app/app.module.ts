@@ -33,6 +33,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {DataViewModule} from 'primeng/dataview';
 import {DropdownModule} from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import {RatingModule} from 'primeng/rating';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { FormsModule } from '@angular/forms';
     DataViewModule,
     DropdownModule,
     FormsModule,
+    RatingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
