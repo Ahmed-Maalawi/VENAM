@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {ProductDetailsService} from "../../services/product-details.service";
+import {OwlOptions} from "ngx-owl-carousel-o";
 
 @Component({
   selector: 'app-item-details',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  constructor() { }
+  currentProduct:any;
+  imgPrefix:string = 'https://medicazone.online/';
+
+  constructor(private _ActivatedRoute:ActivatedRoute, private _ProductDetailsService:ProductDetailsService) {
+
+
+  }
   // images:any;
 
   images:any = [
@@ -42,7 +51,42 @@ export class ItemDetailsComponent implements OnInit {
     // this.photoService.getImages().then(images =>{
     //   this.images = images
     // })
+
+
+    let id = this._ActivatedRoute.snapshot.params['id'];
+
+    this._ProductDetailsService.getProductDetails(id).subscribe(res => {
+      this.currentProduct = res.data;
+      console.table(this.currentProduct);
+    });
   }
 
 
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    mergeFit: true,
+    margin: 10,
+    autoplay: true,
+    stagePadding: 0,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: false
+  }
 }

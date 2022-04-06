@@ -9,8 +9,6 @@ import { OwlOptions } from "ngx-owl-carousel-o";
 export class Home2Component implements OnInit {
 
 
-
-
   imgPrefix: string = "http://medicazone.online/";
   newArrivals: any[] = [];
   bestSeller: any[] = [];
@@ -19,17 +17,17 @@ export class Home2Component implements OnInit {
   constructor(private _HomeService: HomeService) {
     this._HomeService.getProduct().subscribe((res) => {
       console.log(res);
-    })
+    });
 
   }
-  
+
 
   ngOnInit(): void {
 
-    
+
     this._HomeService.getHotDeals().subscribe((response) => {
       this.hotDeals = response.data;
-      
+
     })
     this._HomeService.getFeatured().subscribe((response)=>
     {
@@ -53,8 +51,9 @@ export class Home2Component implements OnInit {
     touchDrag: true,
     pullDrag: true,
     dots: false,
-    autoplayTimeout: 50,
-    autoplaySpeed: 30,
+    autoplay: true,
+    autoplayTimeout: 10000,
+    autoplaySpeed: 800,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
@@ -85,8 +84,9 @@ export class Home2Component implements OnInit {
     margin: 10,
     center: true,
     stagePadding: 50,
-    autoplayTimeout: 30,
-    autoplaySpeed: true,
+    autoplayTimeout: 10000,
+    autoplaySpeed: 1000,
+    autoplay: true,
     navSpeed: 10,
     navText: ['', ''],
     responsive: {
@@ -106,5 +106,5 @@ export class Home2Component implements OnInit {
     nav: false
   }
 
-  
+
 }

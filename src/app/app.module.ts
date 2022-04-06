@@ -30,6 +30,9 @@ import {ToastModule} from 'primeng/toast';
 import { ContactComponent } from './components/contact/contact.component';
 import {ButtonModule} from 'primeng/button';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {DataViewModule} from 'primeng/dataview';
+import {DropdownModule} from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ToastModule,
     ButtonModule,
     BrowserAnimationsModule,
+    DataViewModule,
+    DropdownModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

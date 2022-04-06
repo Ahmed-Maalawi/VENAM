@@ -41,7 +41,7 @@
         <div class="col-xl-5 col-lg-6">
           <div class="shop-details-content">
             <span class="stock-info">In Stock</span>
-            <h2>The Christina Fashion</h2>
+            <h2>{{ currentProduct[0].product_name_en }}</h2>
             <div class="shop-details-review">
               <div class="rating">
                 <i class="fas fa-star"></i>
@@ -55,7 +55,8 @@
             <div class="shop-details-price">
               <h2>$29.00 <del>$49.00</del></h2>
             </div>
-            <p>Cramond Leopard & Pythong Print Anorak Jacket In Beige but also the leap into electronic typesetting, remaining</p>
+<!--            <p>Cramond Leopard & Pythong Print Anorak Jacket In Beige but also the leap into electronic typesetting, remaining</p>-->
+            <p>{{ currentProduct[0].short_descp_en }}</p>
             <div class="product-details-size mb-40">
               <span>Size : </span>
               <a href="#">Guide</a>
@@ -110,14 +111,12 @@
                       <div class="row">
                         <div class="col-xl-3 col-md-4">
                           <div class="product-desc-img">
-                            <img src="assets/img/product/desc_img.jpg" alt="">
+                            <img [src]="imgPrefix + currentProduct[0].product_thambnail" alt="">
                           </div>
                         </div>
                         <div class="col-xl-9 col-md-8">
-                          <h5 class="small-title">The Christina Fashion</h5>
-                          <p>Cramond Leopard & Pythong Print Anorak Jacket In Beige but also the leap into electronic typesetting, remaining Lorem
-                            Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                          <h5 class="small-title">{{ currentProduct[0].product_name_en }}</h5>
+                          <p>{{ currentProduct[0].long_descp_en }}</p>
                           <ul class="product-desc-list">
                             <li>65% poly, 35% rayon</li>
                             <li>Hand wash cold</li>
@@ -247,151 +246,302 @@
                     </div>
                   </div>
                   <div class="row related-product-active">
-                    <div class="col-xl-3">
-                      <div class="exclusive-item exclusive-item-three text-center">
-                        <div class="exclusive-item-thumb">
-                          <a href="shop-details.html">
-                            <img src="assets/img/product/td_product_img01.jpg" alt="">
-                            <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product01.jpg" alt="">
-                          </a>
-                          <ul class="action">
-                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
-                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>
-                            <li><a href="#"><i class="flaticon-witness"></i></a></li>
-                          </ul>
-                        </div>
-                        <div class="exclusive-item-content">
-                          <h5><a href="shop-details.html">Farfetch Mulberry Belted</a></h5>
-                          <div class="exclusive--item--price">
-                            <del class="old-price">$69.00</del>
-                            <span class="new-price">$58.00</span>
+                    <div class="col-12">
+<!--                      <div>Some tags before</div>-->
+                      <owl-carousel-o style="" [options]="customOptions">
+                        <ng-template carouselSlide>
+                          <div class="exclusive-item exclusive-item-three text-center">
+                            <div class="exclusive-item-thumb">
+                              <a href="shop-details.html">
+                                <img src="assets/img/product/td_product_img01.jpg" alt="">
+                                <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product01.jpg" alt="">
+                              </a>
+                              <ul class="action">
+                                <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
+                                <li><a href="#"><i class="flaticon-supermarket"></i></a></li>
+                                <li><a href="#"><i class="flaticon-witness"></i></a></li>
+                              </ul>
+                            </div>
+                            <div class="exclusive-item-content">
+                              <h5><a href="shop-details.html">Farfetch Mulberry Belted</a></h5>
+                              <div class="exclusive--item--price">
+                                <del class="old-price">$69.00</del>
+                                <span class="new-price">$58.00</span>
+                              </div>
+                              <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                              </div>
+                            </div>
                           </div>
-                          <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                        </ng-template>
+                        <ng-template carouselSlide>
+                          <div class="exclusive-item exclusive-item-three text-center">
+                            <div class="exclusive-item-thumb">
+                              <a href="shop-details.html">
+                                <img src="assets/img/product/td_product_img02.jpg" alt="">
+                                <img class="overlay-product-thumb" src="  ../../../assets/img/product/td_product_img05.jpg" alt="">
+                              </a>
+                              <ul class="action">
+                                <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
+                                <li><a href="#"><i class="flaticon-supermarket"></i></a></li>
+                                <li><a href="#"><i class="flaticon-witness"></i></a></li>
+                              </ul>
+                            </div>
+                            <div class="exclusive-item-content">
+                              <h5><a href="shop-details.html">Luxury Fashion Bag</a></h5>
+                              <div class="exclusive--item--price">
+                                <del class="old-price">$69.00</del>
+                                <span class="new-price">$29.00</span>
+                              </div>
+                              <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
+                        </ng-template>
+                        <ng-template carouselSlide>
+                          <div class="exclusive-item exclusive-item-three text-center">
+                            <div class="exclusive-item-thumb">
+                              <a href="shop-details.html">
+                                <img src="assets/img/product/td_product_img03.jpg" alt="">
+                                <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product04.jpg" alt="">
+                              </a>
+                              <ul class="action">
+                                <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
+                                <li><a href="#"><i class="flaticon-supermarket"></i></a></li>
+                                <li><a href="#"><i class="flaticon-witness"></i></a></li>
+                              </ul>
+                            </div>
+                            <div class="exclusive-item-content">
+                              <h5><a href="shop-details.html">Men's Lathers Jacket</a></h5>
+                              <div class="exclusive--item--price">
+                                <del class="old-price">$69.00</del>
+                                <span class="new-price">$58.00</span>
+                              </div>
+                              <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                        <ng-template carouselSlide>
+                          <div class="exclusive-item exclusive-item-three text-center">
+                            <div class="exclusive-item-thumb">
+                              <a href="shop-details.html">
+                                <img src="assets/img/product/td_product_img04.jpg" alt="">
+                                <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">
+                              </a>
+                              <ul class="action">
+                                <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
+                                <li><a href="#"><i class="flaticon-supermarket"></i></a></li>
+                                <li><a href="#"><i class="flaticon-witness"></i></a></li>
+                              </ul>
+                            </div>
+                            <div class="exclusive-item-content">
+                              <h5><a href="shop-details.html">Women Brand T-shirt</a></h5>
+                              <div class="exclusive--item--price">
+                                <del class="old-price">$49.00</del>
+                                <span class="new-price">$21.00</span>
+                              </div>
+                              <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                        <ng-template carouselSlide>
+                          <div class="exclusive-item exclusive-item-three text-center">
+                            <div class="exclusive-item-thumb">
+                              <a href="shop-details.html">
+                                <img src="assets/img/product/td_product_img02.jpg" alt="">
+                                <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">
+                              </a>
+                              <ul class="action">
+                                <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
+                                <li><a href="#"><i class="flaticon-supermarket"></i></a></li>
+                                <li><a href="#"><i class="flaticon-witness"></i></a></li>
+                              </ul>
+                            </div>
+                            <div class="exclusive-item-content">
+                              <h5><a href="shop-details.html">Luxury Fashion Bag</a></h5>
+                              <div class="exclusive--item--price">
+                                <del class="old-price">$69.00</del>
+                                <span class="new-price">$29.00</span>
+                              </div>
+                              <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </owl-carousel-o>
+<!--                      <div>Some tags after</div>-->
                     </div>
-                    <div class="col-xl-3">
-                      <div class="exclusive-item exclusive-item-three text-center">
-                        <div class="exclusive-item-thumb">
-                          <a href="shop-details.html">
-                            <img src="assets/img/product/td_product_img02.jpg" alt="">
-                            <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">
-                          </a>
-                          <ul class="action">
-                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
-                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>
-                            <li><a href="#"><i class="flaticon-witness"></i></a></li>
-                          </ul>
-                        </div>
-                        <div class="exclusive-item-content">
-                          <h5><a href="shop-details.html">Luxury Fashion Bag</a></h5>
-                          <div class="exclusive--item--price">
-                            <del class="old-price">$69.00</del>
-                            <span class="new-price">$29.00</span>
-                          </div>
-                          <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-3">
-                      <div class="exclusive-item exclusive-item-three text-center">
-                        <div class="exclusive-item-thumb">
-                          <a href="shop-details.html">
-                            <img src="assets/img/product/td_product_img03.jpg" alt="">
-                            <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product04.jpg" alt="">
-                          </a>
-                          <ul class="action">
-                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
-                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>
-                            <li><a href="#"><i class="flaticon-witness"></i></a></li>
-                          </ul>
-                        </div>
-                        <div class="exclusive-item-content">
-                          <h5><a href="shop-details.html">Men's Lathers Jacket</a></h5>
-                          <div class="exclusive--item--price">
-                            <del class="old-price">$69.00</del>
-                            <span class="new-price">$58.00</span>
-                          </div>
-                          <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-3">
-                      <div class="exclusive-item exclusive-item-three text-center">
-                        <div class="exclusive-item-thumb">
-                          <a href="shop-details.html">
-                            <img src="assets/img/product/td_product_img04.jpg" alt="">
-                            <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">
-                          </a>
-                         <ul class="action">
-                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
-                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>
-                            <li><a href="#"><i class="flaticon-witness"></i></a></li>
-                          </ul>
-                        </div>
-                        <div class="exclusive-item-content">
-                          <h5><a href="shop-details.html">Women Brand T-shirt</a></h5>
-                          <div class="exclusive--item--price">
-                            <del class="old-price">$49.00</del>
-                            <span class="new-price">$21.00</span>
-                          </div>
-                          <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-3">
-                      <div class="exclusive-item exclusive-item-three text-center">
-                        <div class="exclusive-item-thumb">
-                          <a href="shop-details.html">
-                            <img src="assets/img/product/td_product_img02.jpg" alt="">
-                            <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">
-                          </a>
-                          <ul class="action">
-                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
-                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>
-                            <li><a href="#"><i class="flaticon-witness"></i></a></li>
-                          </ul>
-                        </div>
-                        <div class="exclusive-item-content">
-                          <h5><a href="shop-details.html">Luxury Fashion Bag</a></h5>
-                          <div class="exclusive--item--price">
-                            <del class="old-price">$69.00</del>
-                            <span class="new-price">$29.00</span>
-                          </div>
-                          <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+<!--                    <div class="col-xl-3">-->
+<!--                      <div class="exclusive-item exclusive-item-three text-center">-->
+<!--                        <div class="exclusive-item-thumb">-->
+<!--                          <a href="shop-details.html">-->
+<!--                            <img src="assets/img/product/td_product_img01.jpg" alt="">-->
+<!--                            <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product01.jpg" alt="">-->
+<!--                          </a>-->
+<!--                          <ul class="action">-->
+<!--                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
+<!--                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
+<!--                            <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
+<!--                          </ul>-->
+<!--                        </div>-->
+<!--                        <div class="exclusive-item-content">-->
+<!--                          <h5><a href="shop-details.html">Farfetch Mulberry Belted</a></h5>-->
+<!--                          <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
+<!--                            <del class="old-price">$69.00</del>-->
+<!--                            <span class="new-price">$58.00</span>-->
+<!--                          </div>-->
+<!--                          <div class="rating">-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-3">-->
+<!--                      <div class="exclusive-item exclusive-item-three text-center">-->
+<!--                        <div class="exclusive-item-thumb">-->
+<!--                          <a href="shop-details.html">-->
+<!--                            <img src="assets/img/product/td_product_img02.jpg" alt="">-->
+<!--                            <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">-->
+<!--                          </a>-->
+<!--                          <ul class="action">-->
+<!--                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
+<!--                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
+<!--                            <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
+<!--                          </ul>-->
+<!--                        </div>-->
+<!--                        <div class="exclusive-item-content">-->
+<!--                          <h5><a href="shop-details.html">Luxury Fashion Bag</a></h5>-->
+<!--                          <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
+<!--                            <del class="old-price">$69.00</del>-->
+<!--                            <span class="new-price">$29.00</span>-->
+<!--                          </div>-->
+<!--                          <div class="rating">-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-3">-->
+<!--                      <div class="exclusive-item exclusive-item-three text-center">-->
+<!--                        <div class="exclusive-item-thumb">-->
+<!--                          <a href="shop-details.html">-->
+<!--                            <img src="assets/img/product/td_product_img03.jpg" alt="">-->
+<!--                            <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product04.jpg" alt="">-->
+<!--                          </a>-->
+<!--                          <ul class="action">-->
+<!--                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
+<!--                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
+<!--                            <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
+<!--                          </ul>-->
+<!--                        </div>-->
+<!--                        <div class="exclusive-item-content">-->
+<!--                          <h5><a href="shop-details.html">Men's Lathers Jacket</a></h5>-->
+<!--                          <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
+<!--                            <del class="old-price">$69.00</del>-->
+<!--                            <span class="new-price">$58.00</span>-->
+<!--                          </div>-->
+<!--                          <div class="rating">-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-3">-->
+<!--                      <div class="exclusive-item exclusive-item-three text-center">-->
+<!--                        <div class="exclusive-item-thumb">-->
+<!--                          <a href="shop-details.html">-->
+<!--                            <img src="assets/img/product/td_product_img04.jpg" alt="">-->
+<!--                            <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">-->
+<!--                          </a>-->
+<!--                         <ul class="action">-->
+<!--                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
+<!--                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
+<!--                            <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
+<!--                          </ul>-->
+<!--                        </div>-->
+<!--                        <div class="exclusive-item-content">-->
+<!--                          <h5><a href="shop-details.html">Women Brand T-shirt</a></h5>-->
+<!--                          <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
+<!--                            <del class="old-price">$49.00</del>-->
+<!--                            <span class="new-price">$21.00</span>-->
+<!--                          </div>-->
+<!--                          <div class="rating">-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-3">-->
+<!--                      <div class="exclusive-item exclusive-item-three text-center">-->
+<!--                        <div class="exclusive-item-thumb">-->
+<!--                          <a href="shop-details.html">-->
+<!--                            <img src="assets/img/product/td_product_img02.jpg" alt="">-->
+<!--                            <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">-->
+<!--                          </a>-->
+<!--                          <ul class="action">-->
+<!--                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
+<!--                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
+<!--                            <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
+<!--                          </ul>-->
+<!--                        </div>-->
+<!--                        <div class="exclusive-item-content">-->
+<!--                          <h5><a href="shop-details.html">Luxury Fashion Bag</a></h5>-->
+<!--                          <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
+<!--                            <del class="old-price">$69.00</del>-->
+<!--                            <span class="new-price">$29.00</span>-->
+<!--                          </div>-->
+<!--                          <div class="rating">-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                            <i class="fas fa-star"></i>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
                   </div>
                 </div>
               </p-tabPanel>
@@ -562,7 +712,9 @@
   </section>
   <!-- shop-details-area-end -->
 
- 
+
 </main>
 <!-- main-area-end -->
-
+<div *ngFor="let data of currentProduct[5]">
+  {{data}}
+</div>

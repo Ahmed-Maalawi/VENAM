@@ -13,26 +13,26 @@ export class AboutUsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  customOptions: OwlOptions = {
+  testimonial: OwlOptions = {
     loop: true,
-    autoplayTimeout: 50,
-    autoplaySpeed: 30,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
     dots: false,
+    autoplay: true,
+    autoplayTimeout: 10000,
+    autoplaySpeed: 800,
     navSpeed: 700,
-    // autoPlay: true,
     navText: ['', ''],
     responsive: {
       0: {
         items: 1
       },
       400: {
-        items: 1
+        items: 2
       },
       740: {
-        items: 2
+        items: 3
       },
       940: {
         items: 4
