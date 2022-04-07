@@ -127,7 +127,7 @@
               </ul>
             </div>
             <div class="exclusive-item-content">
-              <h5><a href="shop-details.html">{{offer.product_name_en}}</a></h5>
+              <h5><a [routerLink]="['/product-details', offer.id]">{{offer.product_name_en}}</a></h5>
               <div class="exclusive--item--price">
                 <del class="old-price">${{offer.selling_price}}</del>
                 <span class="new-price">$58.00</span>
