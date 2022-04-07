@@ -1,7 +1,7 @@
 <!-- main-area -->
 
 <main>
-
+  <p-toast key="loginMessage" life="4000" position="bottom-right"></p-toast>
   <!-- breadcrumb-area -->
   <section class="breadcrumb-area breadcrumb-bg" data-background="assets/img/bg/breadcrumb_bg.jpg"
     style="background-image: url('assets/img/bg/breadcrumb_bg.jpg')">
@@ -13,7 +13,7 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a routerLink="/home2">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">My Account</li>
+                <li class="breadcrumb-item active" aria-current="page">LOGIN</li>
               </ol>
             </nav>
           </div>
@@ -81,7 +81,7 @@
                   </div>
                 </div>
                 <div class="form-grp-btn">
-                  <input type="submit" class="btn text-white rounded" [disabled]="loginForm.invalid">
+                  <input type="submit" class="btn text-white rounded">
                   <a routerLink="/register" class="btn">Sign up</a>
                 </div>
               </form>

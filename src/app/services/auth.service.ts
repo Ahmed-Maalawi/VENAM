@@ -11,17 +11,18 @@ export class AuthService {
   constructor(private _HttpClient:HttpClient, private _Router:Router) {}
 
   currentUser: any;
-  register(Data: any):Observable <any>
+  
+  register(Data: any): Observable <any>
   {
     return this._HttpClient.post('https://medicazone.online/api/auth/register', Data);
   }
 
-  login(Data: any):Observable <any>
+  login(Data: any): Observable <any>
   {
     return this._HttpClient.post('https://medicazone.online/api/auth/login', Data);
   }
 
-  getUserData():Observable <any>
+  getUserData(): Observable <any>
   {
     let token = this.getToken();
 
@@ -30,33 +31,44 @@ export class AuthService {
       'Authorization': `Bearer ${token}`,
     });
 
+
     return this._HttpClient.get('https://medicazone.online/api/auth/user-profile', {headers: headers});
   }
 
-  saveUser(userToken:string){
+  saveUser(userToken:string): void
+  {
     localStorage.setItem('userToken', userToken);
   }
 
-  getToken() {
+  getToken(): any 
+  {
     return localStorage.getItem('userToken');
   }
 
-  slider():Observable<any>
+  slider(): Observable <any>
   {
-    return this._HttpClient.get('https://medicazone.online/api/zone/sliders')
-  };
+    return this._HttpClient.get('https://medicazone.online/api/zone/sliders');
+  }
 
 
 
   isLoggedIn():boolean
   {
-    return (localStorage.getItem('userToken') != null? true : false);
+    // console.log(localStorage.getItem('userToken'));
+    return (localStorage.getItem('userToken') == null|| localStorage.getItem('userToken') == ' '? false : true);
   }
 
-  logout():void
+  logout(): Observable <any>
   {
-    localStorage.removeItem('userToken');
-    
-    this._Router.navigate(['/home']);
+    let token = this.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    });
+    console.log(headers);
+
+    return this._HttpClient.post('http://medicazone.online/api/auth/logout', {headers: headers});
   }
+
 }

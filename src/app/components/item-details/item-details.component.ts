@@ -46,6 +46,8 @@ export class ItemDetailsComponent implements OnInit {
 
   ngOnInit() {
 
+    window.scrollTo(0, 400);
+
     let id = this._ActivatedRoute.snapshot.params['id'];
 
     this._ProductDetailsService.getProductDetails(id).subscribe(res => {

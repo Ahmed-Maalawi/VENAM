@@ -17,7 +17,7 @@ export class Home2Component implements OnInit {
 
   constructor(private _HomeService: HomeService) {
     this._HomeService.getProduct().subscribe((res) => {
-      console.log(res);
+      // console.log(res);
     });
 
   }

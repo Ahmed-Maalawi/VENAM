@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {MessageService} from "primeng/api";
+// import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-login',
@@ -10,21 +11,26 @@ import {MessageService} from "primeng/api";
   styleUrls: ['./login.component.css'],
   providers: [MessageService]
 })
-export class LoginComponent implements OnInit {
-  // private _AuthService:AuthService
-  constructor(
-    private _Router:Router,
-    private _AuthService:AuthService,
-    private _MessageService: MessageService
-  ) { }
 
-  ngOnInit(): void {
-  }
+export class LoginComponent implements OnInit {
+  
   value3: string = '';
   token:string = '';
   loginError:any;
   loginFailed:string = '';
 
+  constructor(
+    private _Router:Router,
+    private _AuthService:AuthService,
+    private _MessageService: MessageService
+  )
+  { }
+
+
+  ngOnInit(): void {}
+
+
+  // -------------  login form  -------------
   loginForm = new FormGroup({
 
     email: new FormControl(null, [Validators.required, Validators.email]),
@@ -32,34 +38,34 @@ export class LoginComponent implements OnInit {
 
   });
 
-  loginSubmit(formData:FormGroup){
+  // ----------- submit login form --------------
+  loginSubmit(formData:FormGroup)
+  {
 
     this._AuthService.login(formData.value).subscribe(response => {
-      if (response.message == 'success') {
-        this._AuthService.saveUser(response.access_token);
-        this._AuthService.getUserData().subscribe(response => {
+     
+      this._AuthService.saveUser(response.access_token);
+      this._AuthService.getUserData().subscribe(response => {
 
-          this._AuthService.currentUser = response;
-          console.table(this._AuthService.currentUser)
-          // this._Router.navigate(['/home2']);
-          this.showSuccess('you are login successfully');
-        });
-      } else {
-        this.loginError = response.error;
-        console.log(this.loginError);
-      }
-      //  end login statement
+        this._AuthService.currentUser = response;
+        this.showSuccess('You Are Login Successfully', `Hi....${this._AuthService.currentUser.name}`, 'success');
+        setTimeout(()=> {this._Router.navigate(['/home2'])}, 3000);
+      
+      });
+
     }, error => {
 
-      this.loginFailed = error.error.error;
-      console.log(this.loginFailed);
+      this.loginFailed = error['error']['error'];
+      this.showSuccess(this.loginFailed, 'Waring', 'error');
+
     });
 
   //   this.loginError = '';
 
   }
 
-  showSuccess(message:string) {
-    this._MessageService.add({key:'loginMessage' ,severity:'success', summary: 'Success', detail: message});
+  showSuccess(message:string, summary:string, status:string)
+  {
+    this._MessageService.add({key:'loginMessage' ,severity:status, summary: summary, detail: message});
   }
 }
