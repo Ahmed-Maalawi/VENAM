@@ -12,7 +12,8 @@ export class Home2Component implements OnInit {
   imgPrefix: string = "http://medicazone.online/";
   newArrivals: any[] = [];
   bestSeller: any[] = [];
-  hotDeals: any = [];
+  hotDeals: any[] = [];
+  slider:any[]=[]
 
   constructor(private _HomeService: HomeService) {
     this._HomeService.getProduct().subscribe((res) => {
@@ -27,12 +28,17 @@ export class Home2Component implements OnInit {
 
     this._HomeService.getHotDeals().subscribe((response) => {
       this.hotDeals = response.data;
+      this.bestSeller= response.data;
 
     })
     this._HomeService.getFeatured().subscribe((response)=>
     {
-      this.newArrivals= response.data
-    })
+      this.newArrivals= response.data;
+    });
+    this._HomeService.slider().subscribe((response)=>
+    {
+      this.slider = response.data;
+    });
   }
 
   // getHotDeals() {

@@ -443,7 +443,7 @@
                   <span>Ship to</span>
                   <div class="dropdown">
                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                      aria-haspopup="true" aria-expanded="false">
                       <img src="assets/img/icon/ship_flag.png" alt=""> US/USD
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -459,7 +459,7 @@
                   <span>Quick Guide</span>
                   <div class="dropdown">
                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                      aria-haspopup="true" aria-expanded="false">
                       Help
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
@@ -474,7 +474,7 @@
                 <div class="heder-top-guide">
                   <div class="dropdown">
                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                      aria-haspopup="true" aria-expanded="false">
                       Sell With Us
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
@@ -490,12 +490,15 @@
           <div class="header-top-right">
             <ul>
               <li>
-                <a routerLink="/register"><i class="flaticon-user"></i>Register</a>
+                <a routerLink="/register">
+                  <i class="flaticon-user"></i>Register
+                </a>
                 <span>or</span>
-                <a routerLink="/login">Sign in</a>
-                <div *ngIf="">
+                <a routerLink="/login">Login </a>
+                <a routerLink="/login">Logout</a>
+                <!-- <div *ngIf="">
                   <a onClick="logoutClick()">Log out</a>
-                </div>
+                </div> -->
 
               </li>
             </ul>
@@ -519,12 +522,12 @@
               </div>
               <div class="navbar-wrap main-menu d-none d-lg-flex">
                 <ul class="navigation">
-                  <li class="active dropdown"><a routerLink="/home2">Home</a>
-<!--                    <ul class="submenu">-->
-<!--                      <li><a href="index.html">Home One</a></li>-->
-<!--                      <li><a href="index-2.html">Home Two</a></li>-->
-<!--                      <li class="active"><a href="index-3.html">Home Three</a></li>-->
-<!--                    </ul>-->
+                  <li class="dropdown"><a routerLink="/home2">Home</a>
+                    <!--<ul class="submenu">-->
+                    <!--<li><a href="index.html">Home One</a></li>-->
+                    <!--<li><a href="index-2.html">Home Two</a></li>-->
+                    <!--<li class="active"><a href="index-3.html">Home Three</a></li>-->
+                    <!--</ul>-->
                   </li>
                   <li><a routerLink="/about">About Us</a></li>
                   <li class="dropdown"><a routerLink="/">PAGES</a>
@@ -560,7 +563,8 @@
                 <ul>
                   <li><a href="#"><i class="flaticon-two-arrows"></i></a></li>
                   <li><a href="wishlist.html"><i class="flaticon-heart"></i></a></li>
-                  <li class="header-shop-cart"><a href="#"><i class="flaticon-shopping-bag"></i><span class="cart-count">2</span></a>
+                  <li class="header-shop-cart"><a href="#"><i class="flaticon-shopping-bag"></i><span
+                        class="cart-count">2</span></a>
                     <span class="cart-total-price">$ 128.00</span>
                     <ul class="minicart">
                       <li class="d-flex align-items-start">
@@ -576,8 +580,8 @@
                           <div class="cart-price">
                             <span class="new">$229.9</span>
                             <span>
-                                                                    <del>$229.9</del>
-                                                                </span>
+                              <del>$229.9</del>
+                            </span>
                           </div>
                         </div>
                         <div class="del-icon">
@@ -599,8 +603,8 @@
                           <div class="cart-price">
                             <span class="new">$229.9</span>
                             <span>
-                                                                    <del>$229.9</del>
-                                                                </span>
+                              <del>$229.9</del>
+                            </span>
                           </div>
                         </div>
                         <div class="del-icon">
@@ -663,13 +667,18 @@
         <div class="col-xl-3 col-lg-4 d-none d-lg-block">
           <div class="header-category d-none d-lg-block">
             <a href="#" class="cat-toggle">
-              <i class="flaticon-menu"></i>ALL DEPARTMENT
+              <i class="flaticon-menu"></i>
+              ALL DEPARTMENT
             </a>
             <ul class="category-menu">
-              <li class="has-dropdown"><a href="#"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img01.png" alt=""></div> Western woman</a>
+              <li class="has-dropdown">
+                <a href="#">
+                  <div class="cat-menu-img"><img src="assets/img/product/category_menu_img01.png" alt="">
+                  </div> Western woman
+                </a>
                 <ul class="mega-menu">
                   <li>
-                    
+
                     <ul>
                       <li class="dropdown-title">Accessories & Parts</li>
                       <li><a href="#">Cables & Adapters</a></li>
@@ -713,13 +722,17 @@
                     </ul>
                     <ul>
                       <li class="dropdown-title">Audio & Video</li>
-                      <li class="mega-menu-banner"><a href="#"><img src="assets/img/images/megamenu_banner.jpg" alt=""></a>
+                      <li class="mega-menu-banner"><a href="#"><img src="assets/img/images/megamenu_banner.jpg"
+                            alt=""></a>
                       </li>
                     </ul>
                   </li>
                 </ul>
               </li>
-              <li class="has-dropdown"><a href="#"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img02.png" alt=""></div> TV, Appliances</a>
+              <li class="has-dropdown"><a href="#">
+                  <div class="cat-menu-img"><img src="assets/img/product/category_menu_img02.png" alt=""></div> TV,
+                  Appliances
+                </a>
                 <ul class="mega-menu">
                   <li>
                     <ul>
@@ -765,23 +778,51 @@
                     </ul>
                     <ul>
                       <li class="dropdown-title">Audio & Video</li>
-                      <li class="mega-menu-banner"><a href="#"><img src="assets/img/images/megamenu_banner.jpg" alt=""></a>
+                      <li class="mega-menu-banner"><a href="#"><img src="assets/img/images/megamenu_banner.jpg"
+                            alt=""></a>
                       </li>
                     </ul>
                   </li>
                 </ul>
               </li>
-              <li><a href="shop-left-sidebar.html"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img03.png" alt=""></div> Baby Product</a></li>
-              <li><a href="shop-left-sidebar.html"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img04.png" alt=""></div> Grocery Product</a></li>
-              <li><a href="shop-left-sidebar.html"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img05.png" alt=""></div> Beauty, Health Product</a></li>
-              <li><a href="shop-left-sidebar.html"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img06.png" alt=""></div> Industrial Product</a></li>
-              <li><a href="shop-left-sidebar.html"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img07.png" alt=""></div> Car, Motorbike</a></li>
-              <li><a href="shop-left-sidebar.html"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img08.png" alt=""></div> Club Sports</a></li>
+              <li><a href="shop-left-sidebar.html">
+                  <div class="cat-menu-img"><img src="assets/img/product/category_menu_img03.png" alt=""></div> Baby
+                  Product
+                </a></li>
+              <li><a href="shop-left-sidebar.html">
+                  <div class="cat-menu-img"><img src="assets/img/product/category_menu_img04.png" alt=""></div> Grocery
+                  Product
+                </a></li>
+              <li><a href="shop-left-sidebar.html">
+                  <div class="cat-menu-img"><img src="assets/img/product/category_menu_img05.png" alt=""></div> Beauty,
+                  Health Product
+                </a></li>
+              <li><a href="shop-left-sidebar.html">
+                  <div class="cat-menu-img"><img src="assets/img/product/category_menu_img06.png" alt=""></div>
+                  Industrial Product
+                </a></li>
+              <li><a href="shop-left-sidebar.html">
+                  <div class="cat-menu-img"><img src="assets/img/product/category_menu_img07.png" alt=""></div> Car,
+                  Motorbike
+                </a></li>
+              <li><a href="shop-left-sidebar.html">
+                  <div class="cat-menu-img"><img src="assets/img/product/category_menu_img08.png" alt=""></div> Club
+                  Sports
+                </a></li>
               <li>
                 <ul class="more_slide_open">
-                  <li><a href="#"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img01.png" alt=""></div> Western woman</a></li>
-                  <li><a href="#"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img02.png" alt=""></div> Health Product</a></li>
-                  <li><a href="#"><div class="cat-menu-img"><img src="assets/img/product/category_menu_img03.png" alt=""></div> Industrial Product</a></li>
+                  <li><a href="#">
+                      <div class="cat-menu-img"><img src="assets/img/product/category_menu_img01.png" alt=""></div>
+                      Western woman
+                    </a></li>
+                  <li><a href="#">
+                      <div class="cat-menu-img"><img src="assets/img/product/category_menu_img02.png" alt=""></div>
+                      Health Product
+                    </a></li>
+                  <li><a href="#">
+                      <div class="cat-menu-img"><img src="assets/img/product/category_menu_img03.png" alt=""></div>
+                      Industrial Product
+                    </a></li>
                 </ul>
               </li>
               <li class="more_categories">More Categories<i class="fas fa-angle-down"></i></li>

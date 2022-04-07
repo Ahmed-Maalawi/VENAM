@@ -10,6 +10,10 @@ export class HomeService {
   constructor(private _HttpClient:HttpClient) { }
 
 
+  slider(): Observable<any>
+  {
+    return this._HttpClient.get('http://medicazone.online/api/zone/sliders')
+  }
   getProduct(): Observable<any>
   {
     return this._HttpClient.get('https://medicazone.online/api/zone/sliders');
