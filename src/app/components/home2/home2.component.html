@@ -12,7 +12,7 @@
                 <h5 data-animation="fadeInUp" data-delay=".3s">{{slide.title}} !</h5>
                 <h2 data-animation="fadeInUp" data-delay=".6s">{{slide.description}}<span></span></h2>
                 <p data-animation="fadeInUp" data-delay=".9s">Get up to <span>50%</span> off Today Only</p>
-                <a href="shop-left-sidebar.html" class="btn yellow-btn" data-animation="fadeInUp" data-delay="1s">Shop Now</a>
+                <a routerLink="/shop" class="btn yellow-btn" data-animation="fadeInUp" data-delay="1s">Shop Now</a>
               </div>
               <!-- <div class="slider-img" data-animation="fadeInRight" data-delay="1.2s">
                 <img src="assets/img/slider/t_slider_img01.png" alt="">
@@ -41,12 +41,12 @@
           <div class="slider-bottom-product list-product-item mb-30">
             <div class="list-product-thumb">
               <a [routerLink]="['/product-details', offer.id]">
-                <img [src]="imgPrefix+offer.product_thambnail" class="w-50" alt="">
+                <img [src]="imgPrefix+offer.product_thambnail" class="w-50 m-1 img-fluid" [alt]="offer.product_name_en">
               </a>
             </div>
             <div class="list-product-content p-1">
-              <h6><a href="shop-details.html">{{offer.product_name_en}}</a></h6>
-              <p>US $ 17.29<span> 50% off </span></p>
+              <h6><a [routerLink]="['/product-details', offer.id]">{{offer.product_name_en}}</a></h6>
+              <p>EGP {{ offer.discount_price}}<span> 50% off </span></p>
               <!-- <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -120,7 +120,7 @@
           <div class="exclusive-item exclusive-item-three text-center mb-40">
             <div class="exclusive-item-thumb">
               <a [routerLink]="['/product-details', offer.id]">
-                <img [src]="imgPrefix+offer.product_thambnail" class="w-50" alt="">
+                <img [src]="imgPrefix+offer.product_thambnail" class="w-50" [alt]="offer.product_name_en">
                 <!-- <img class="overlay-product-thumb w-50" [src]="imgPrefix+offer.product_thambnail" alt=""> -->
               </a>
               <ul class="action">
@@ -463,7 +463,7 @@
               <h4 class="title">Trending This Week</h4>
             </div>
             <div class="view-all-deal">
-              <a href="shop-left-sidebar.html"><i class="flaticon-scroll"></i> View All</a>
+              <a routerLink="/shop"><i class="flaticon-scroll"></i> View All</a>
             </div>
           </div>
         </div>
@@ -472,7 +472,7 @@
         <div class="col-xl-3 col-md-4 col-sm-6" *ngFor="let offer of bestSeller | slice:6:10;">
           <div class="exclusive-item exclusive-item-three text-center mb-40">
             <div class="exclusive-item-thumb">
-              <a href="shop-details.html">
+              <a [routerLink]="['/product-details', offer.id]">
                 <img [src]="imgPrefix+offer.product_thambnail" class="w-50" alt="">
                 <!-- <img class="overlay-product-thumb" [src]="imgPrefix+offer.product_thambnail" alt=""> -->
               </a>
@@ -483,18 +483,19 @@
               </ul>
             </div>
             <div class="exclusive-item-content">
-              <h5><a href="shop-details.html">{{offer.product_name_en}}</a></h5>
+              <h5><a [routerLink]="['/product-details', offer.id]">{{offer.product_name_en}}</a></h5>
               <div class="exclusive--item--price">
                 <del class="old-price">${{offer.selling_price}}</del>
                 <span class="new-price">$58.00</span>
               </div>
-              <div class="rating">
+              <!-- <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
-              </div>
+              </div> -->
+              <p-rating [ngModel]="offer.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
             </div>
           </div>
         </div>
@@ -616,69 +617,69 @@
             <div class="col-sm-6">
               <div class="bs-cat-box mb-30">
                 <div class="bs-cat-thumb">
-                  <a href="shop-left-sidebar.html"><img src="assets/img/product/bs_cat01.png" alt=""></a>
+                  <a routerLink="/shop"><img src="assets/img/product/bs_cat01.png" alt=""></a>
                 </div>
                 <div class="bs-cat-list">
                   <ul>
                     <li class="title">Home Electronics</li>
-                    <li><a href="shop-left-sidebar.html">Smart UHD TV</a></li>
-                    <li><a href="shop-left-sidebar.html">Micro Oven</a></li>
-                    <li><a href="shop-left-sidebar.html">Snow Frost in Freezer</a></li>
-                    <li><a href="shop-left-sidebar.html">Toaster Oven</a></li>
+                    <li><a routerLink="/shop">Smart UHD TV</a></li>
+                    <li><a routerLink="/shop">Micro Oven</a></li>
+                    <li><a routerLink="/shop">Snow Frost in Freezer</a></li>
+                    <li><a routerLink="/shop">Toaster Oven</a></li>
                   </ul>
                 </div>
-                <a href="shop-left-sidebar.html" class="view-all">View All</a>
+                <a routerLink="/shop" class="view-all">View All</a>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="bs-cat-box mb-30">
                 <div class="bs-cat-thumb">
-                  <a href="shop-left-sidebar.html"><img src="assets/img/product/bs_cat02.png" alt=""></a>
+                  <a routerLink="/shop"><img src="assets/img/product/bs_cat02.png" alt=""></a>
                 </div>
                 <div class="bs-cat-list">
                   <ul>
                     <li class="title">Clothing & Accessories</li>
-                    <li><a href="shop-left-sidebar.html">Women Fashion Dress</a></li>
-                    <li><a href="shop-left-sidebar.html">Baby Clothing</a></li>
-                    <li><a href="shop-left-sidebar.html">Snow Frost in Freezer</a></li>
-                    <li><a href="shop-left-sidebar.html">Toaster Oven</a></li>
+                    <li><a routerLink="/shop">Women Fashion Dress</a></li>
+                    <li><a routerLink="/shop">Baby Clothing</a></li>
+                    <li><a routerLink="/shop">Snow Frost in Freezer</a></li>
+                    <li><a routerLink="/shop">Toaster Oven</a></li>
                   </ul>
                 </div>
-                <a href="shop-left-sidebar.html" class="view-all">View All</a>
+                <a routerLink="/shop" class="view-all">View All</a>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="bs-cat-box mb-30">
                 <div class="bs-cat-thumb">
-                  <a href="shop-left-sidebar.html"><img src="assets/img/product/bs_cat03.png" alt=""></a>
+                  <a routerLink="/shop"><img src="assets/img/product/bs_cat03.png" alt=""></a>
                 </div>
                 <div class="bs-cat-list">
                   <ul>
                     <li class="title">Kitchen Accessories</li>
-                    <li><a href="shop-left-sidebar.html">Smart UHD TV</a></li>
-                    <li><a href="shop-left-sidebar.html">Micro Oven</a></li>
-                    <li><a href="shop-left-sidebar.html">Snow Frost in Freezer</a></li>
-                    <li><a href="shop-left-sidebar.html">Toaster Oven</a></li>
+                    <li><a routerLink="/shop">Smart UHD TV</a></li>
+                    <li><a routerLink="/shop">Micro Oven</a></li>
+                    <li><a routerLink="/shop">Snow Frost in Freezer</a></li>
+                    <li><a routerLink="/shop">Toaster Oven</a></li>
                   </ul>
                 </div>
-                <a href="shop-left-sidebar.html" class="view-all">View All</a>
+                <a routerLink="/shop" class="view-all">View All</a>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="bs-cat-box mb-30">
                 <div class="bs-cat-thumb">
-                  <a href="shop-left-sidebar.html"><img src="assets/img/product/bs_cat04.png" alt=""></a>
+                  <a routerLink="/shop"><img src="assets/img/product/bs_cat04.png" alt=""></a>
                 </div>
                 <div class="bs-cat-list">
                   <ul>
                     <li class="title">Home Kids Toys</li>
-                    <li><a href="shop-left-sidebar.html">Smart UHD TV</a></li>
-                    <li><a href="shop-left-sidebar.html">Micro Oven</a></li>
-                    <li><a href="shop-left-sidebar.html">Snow Frost in Freezer</a></li>
-                    <li><a href="shop-left-sidebar.html">Toaster Oven</a></li>
+                    <li><a routerLink="/shop">Smart UHD TV</a></li>
+                    <li><a routerLink="/shop">Micro Oven</a></li>
+                    <li><a routerLink="/shop">Snow Frost in Freezer</a></li>
+                    <li><a routerLink="/shop">Toaster Oven</a></li>
                   </ul>
                 </div>
-                <a href="shop-left-sidebar.html" class="view-all">View All</a>
+                <a routerLink="/shop" class="view-all">View All</a>
               </div>
             </div>
           </div>

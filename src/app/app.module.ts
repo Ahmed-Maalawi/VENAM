@@ -34,6 +34,7 @@ import {DataViewModule} from 'primeng/dataview';
 import {DropdownModule} from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import {RatingModule} from 'primeng/rating';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import {RatingModule} from 'primeng/rating';
     DropdownModule,
     FormsModule,
     RatingModule,
+    DynamicDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

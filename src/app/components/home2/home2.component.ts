@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import { HomeService } from "../../services/home.service";
 import { OwlOptions } from "ngx-owl-carousel-o";
+
 @Component({
   selector: 'app-home2',
   templateUrl: './home2.component.html',
-  styleUrls: ['./home2.component.css']
+  styleUrls: ['./home2.component.css'],
+  providers: [DialogService]
 })
 export class Home2Component implements OnInit {
 
@@ -15,7 +18,7 @@ export class Home2Component implements OnInit {
   hotDeals: any[] = [];
   slider:any[]=[]
 
-  constructor(private _HomeService: HomeService) {
+  constructor(private _HomeService: HomeService, private _DialogService:DialogService) {
     this._HomeService.getProduct().subscribe((res) => {
       // console.log(res);
     });
@@ -27,17 +30,22 @@ export class Home2Component implements OnInit {
 
 
     this._HomeService.getHotDeals().subscribe((response) => {
+      
       this.hotDeals = response.data;
       this.bestSeller= response.data;
 
-    })
-    this._HomeService.getFeatured().subscribe((response)=>
-    {
-      this.newArrivals= response.data;
     });
-    this._HomeService.slider().subscribe((response)=>
-    {
+
+    this._HomeService.getFeatured().subscribe((response)=> {
+
+      this.newArrivals= response.data;
+
+    });
+
+    this._HomeService.slider().subscribe((response)=> {
+
       this.slider = response.data;
+
     });
   }
 
@@ -50,6 +58,34 @@ export class Home2Component implements OnInit {
   //     console.log('test')
   //   });
   // }
+
+
+//   ref: any;
+
+
+//   show(broduct:any) {
+//     this.ref = this._DialogService.open(broduct, {
+//         header: broduct.product_name_en,
+//         width: '70%',
+//         contentStyle: {"max-height": "500px", "overflow": "auto"},
+//         baseZIndex: 10000
+//     });
+
+//     // this.ref.onClose.subscribe((product: Product) =>{
+//     //     if (product) {
+//     //         this.messageService.add({severity:'info', summary: 'Product Selected', detail: product.name});
+//     //     }
+//     // });
+// }
+
+// ngOnDestroy() {
+//     if (this.ref) {
+//         this.ref.close();
+//     }
+// }
+
+
+
 
   testimonial: OwlOptions = {
     loop: true,

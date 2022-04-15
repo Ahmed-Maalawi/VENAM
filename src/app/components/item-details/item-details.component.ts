@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProductDetailsService} from "../../services/product-details.service";
 import {OwlOptions} from "ngx-owl-carousel-o";
+
 
 @Component({
   selector: 'app-item-details',
@@ -17,7 +18,7 @@ export class ItemDetailsComponent implements OnInit {
   // @Output() value:string | any;
   // @Output() valueChange: new EventEmitter<any>();
 
-  constructor(private _ActivatedRoute:ActivatedRoute, private _ProductDetailsService:ProductDetailsService) {
+  constructor(private _ActivatedRoute:ActivatedRoute, private _ProductDetailsService:ProductDetailsService, private _Router:Router) {
 
 
   }
@@ -35,7 +36,7 @@ export class ItemDetailsComponent implements OnInit {
     },
     {
       breakpoint: '768px',
-      numVisible: 3
+      numVisible: 4
     },
     {
       breakpoint: '560px',
@@ -93,5 +94,18 @@ export class ItemDetailsComponent implements OnInit {
       }
     },
     nav: false
+  }
+
+  change(id:number) {
+
+    this._ActivatedRoute.snapshot.params['id'] = id;
+    this.reloadCurrentRoute();
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this._Router.url;
+    this._Router.navigateByUrl('/', {skipLocationChange: false}).then(() => {
+      this._Router.navigate([currentUrl]);
+    });
   }
 }
