@@ -7,6 +7,9 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AuthService {
+  static isLoggedIn() {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private _HttpClient:HttpClient, private _Router:Router) {}
 
@@ -49,8 +52,6 @@ export class AuthService {
   {
     return this._HttpClient.get('https://medicazone.online/api/zone/sliders');
   }
-
-
 
   isLoggedIn():boolean
   {

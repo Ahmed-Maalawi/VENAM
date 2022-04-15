@@ -657,7 +657,8 @@
 	background: #222;
 }
 .theme-bg {
-	background: #fcf0ee;
+	/* background: #fcf0ee; */
+	background: #21cef34f;
 }
 .primary-bg {
 	background: #fefafa;
