@@ -10,7 +10,7 @@
             <h2>Wishlist</h2>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a routerLink="/home2">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Wishlist</li>
               </ol>
             </nav>
@@ -40,15 +40,23 @@
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td class="product-thumbnail"><a href="#" class="wishlist-remove"><i class="flaticon-cancel-1"></i></a><a href="shop-details.html"><img src="img/product/wishlist_thumb01.jpg" alt=""></a>
+              <tr *ngFor="let item of wishListProduct">
+                <td class="product-thumbnail">
+                  <a href="#" class="wishlist-remove">
+                    <i class="flaticon-cancel-1"></i>
+                  </a>
+                  <a routerLink="['/product-details', item['product'].id]">
+                    <img [src]="imgPrefix + item['product'].product_thambnail" [alt]="item['product'].product_name_en" class="img-fluid w-50">
+                  </a>
                 </td>
                 <td class="product-name">
-                  <h4><a href="shop-details.html">Woman Lathers Jacket</a></h4>
-                  <p>Cramond Leopard & Pythong Anorak</p>
-                  <span>65% poly, 35% rayon</span>
+                  <h4>
+                    <a routerLink="['/product-details', item['product'].id]">{{ item['product'].product_name_en }}</a>
+                  </h4>
+                  <!-- <p>Cramond Leopard & Pythong Anorak</p>
+                  <span>65% poly, 35% rayon</span> -->
                 </td>
-                <td class="product-price">$ 29.00</td>
+                <td class="product-price">EGP {{ item['product'].selling_price }}</td>
                 <td class="product-quantity">
                   <div class="cart-plus">
                     <form action="#">
@@ -62,7 +70,7 @@
                 <td class="product-stock-status"><span>In Stock</span></td>
                 <td class="product-add-to-cart"><span>Added on March 10. 2020</span><a href="cart.html" class="btn">Add to Cart</a></td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td class="product-thumbnail"><a href="#" class="wishlist-remove"><i class="flaticon-cancel-1"></i></a><a href="shop-details.html"><img src="img/product/wishlist_thumb02.jpg" alt=""></a>
                 </td>
                 <td class="product-name">
@@ -105,7 +113,7 @@
                 <td class="product-subtotal"><span>$ 68.00</span></td>
                 <td class="product-stock-status"><span>In Stock</span></td>
                 <td class="product-add-to-cart"><span>Added on March 10. 2020</span><a href="cart.html" class="btn">Add to Cart</a></td>
-              </tr>
+              </tr> -->
               </tbody>
             </table>
           </div>

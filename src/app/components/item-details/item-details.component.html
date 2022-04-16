@@ -29,11 +29,11 @@
 <!--          <h5>Positioned at Left</h5>-->
 <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="4"
 thumbnailsPosition="left">
-<ng-template pTemplate="item" let-item>
-    <img [src]="imgPrefix + item" class="img-fluid" style="width: 100%; display: block;" />
+<ng-template pTemplate="item" let-item class="overflow-hidden">
+    <img [src]="imgPrefix + item" class="img-fluid overflow-hidden" style="width: 100%; display: block;" />
 </ng-template>
 <ng-template pTemplate="thumbnail" let-item>
-    <div class="grid grid-nogutter justify-content-center" style="max-width: 10vw">
+    <div class="overflow-hidden grid grid-nogutter justify-content-center" style="max-width: 10vw">
         <img class="img-fluid" [src]="imgPrefix + item"/>
     </div>
 </ng-template>
@@ -51,7 +51,7 @@ thumbnailsPosition="left">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
               </div> -->
-              <p-rating [ngModel]="currentProduct[0].rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating> 
+              <p-rating [ngModel]="currentProduct[0].rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
               <span>-  Customer Reviews</span>
             </div>
             <div class="shop-details-price">
@@ -65,11 +65,14 @@ thumbnailsPosition="left">
               <a href="#">Guide</a>
               <a href="#">Can't Find Your Size?</a>
               <ul>
-                <li><a href="#">XXS</a></li>
+                <li *ngFor="let size of currentProduct[4]">
+                  <a style="cursor: pointer;">{{ size }}</a>
+                </li>
+                <!-- <li><a href="#">XXS</a></li>
                 <li><a href="#">XS</a></li>
                 <li><a href="#">s</a></li>
                 <li><a href="#">M</a></li>
-                <li><a href="#">L</a></li>
+                <li><a href="#">L</a></li> -->
               </ul>
             </div>
             <div class="perched-info">
@@ -255,7 +258,7 @@ thumbnailsPosition="left">
                         <ng-template carouselSlide *ngFor="let item of relatedProductsArr">
                           <div class="exclusive-item exclusive-item-three text-center">
                             <div class="exclusive-item-thumb">
-                              <a [routerLink]="['/product-details', item.id]">
+                              <a [routerLink]="['../', item.id]">
                                 <img [src]="imgPrefix + item.product_thambnail" [alt]="item.product_name_en">
 <!--                                <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product01.jpg" alt="">-->
                               </a>
@@ -266,7 +269,7 @@ thumbnailsPosition="left">
                               </ul>
                             </div>
                             <div class="exclusive-item-content">
-                              <h5><a href="shop-details.html">{{ item.product_name_en}}</a></h5>
+                              <h5><a [routerLink]="['../', item.id]">{{ item.product_name_en}}</a></h5>
                               <div class="exclusive--item--price">
                                 <del class="old-price">EGP {{ item.selling_price }}</del>
                                 <span class="new-price">EGP {{item.discount_price}}</span>

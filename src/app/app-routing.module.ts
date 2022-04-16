@@ -14,16 +14,18 @@ import { CheckOutComponent } from "./components/check-out/check-out.component";
 import { BlogDetailsComponent } from "./components/blog-details/blog-details.component";
 import { BlogComponent } from "./components/blog/blog.component";
 import { ContactComponent } from "./components/contact/contact.component";
+import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/not-auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home2', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'home2', component: Home2Component },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'wishList', component: WishListComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'check-out', component: CheckOutComponent },
+  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [NotAuthGuard] },
+  { path: 'wishList', component: WishListComponent, canActivate: [AuthGuard] },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
   { path: 'shop', component: ShopComponent },
   { path: 'product-details/:id', component: ItemDetailsComponent },
   { path: 'blog-details', component: BlogDetailsComponent },
