@@ -489,6 +489,9 @@
         <div class="col-md-4 col-sm-5">
           <div class="header-top-right">
             <ul>
+              <li *ngIf="checkIsLogin()">
+                <a [routerLink]="['/profile']"><p-avatar label="U" styleClass="mr-2" [style]="{'background-color': '#9c27b0', 'color': '#ffffff','cursor': 'pointer'}" shape="circle"></p-avatar></a>
+              </li>
               <li>
                 <div *ngIf="!checkIsLogin()">
                   <a routerLink="/register">

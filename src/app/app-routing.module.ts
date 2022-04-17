@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'wishList', component: WishListComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
-  { path: 'shop', component: ShopComponent },
+  { path: 'shop', component: ShopComponent, children:[] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'product-details/:id', component: ItemDetailsComponent },
   { path: 'blog-details', component: BlogDetailsComponent },

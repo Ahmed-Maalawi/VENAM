@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   activeItem: any;
 
   activeItem2: any;
+  
   constructor() { }
 
   ngOnInit(): void {

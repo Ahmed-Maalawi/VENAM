@@ -11,7 +11,7 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Shop Left Sidebar</li>
+                <li class="breadcrumb-item active" aria-current="page">Shop</li>
               </ol>
             </nav>
           </div>
@@ -644,18 +644,21 @@
                     </div>
                     <div class="exclusive-item-content">
                       <h5><a [routerLink]="['/product-details', item.id]">{{ item.product_name_en }}</a></h5>
-                      <div class="exclusive--item--price">
+                      <div class="exclusive--item--price" *ngIf="item.special_item == true">
                         <del class="old-price">EGP {{ item.selling_price }}</del>
                         <span class="new-price">EGP {{ item.discount_price }}</span>
-                        <span *ngIf="" class="new-price">EGP {{ item.discount_price }}</span>
                       </div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                      <div class="exclusive--item--price" *ngIf="item.special_item != true">
+                        <span class="new-price">EGP {{ item.selling_price }}</span>
                       </div>
+                      <p-rating [ngModel]="item.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
+                      <!-- <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div> -->
                     </div>
                   </div>
                 </div>

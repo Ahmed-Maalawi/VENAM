@@ -39,6 +39,8 @@ import { ChipModule } from 'primeng/chip';
 import { ProfileComponent } from './components/profile/profile.component';
 import {MenuModule} from 'primeng/menu';
 import {TabMenuModule} from 'primeng/tabmenu';
+import {AvatarModule} from 'primeng/avatar';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +84,7 @@ import {TabMenuModule} from 'primeng/tabmenu';
     ChipModule,
     MenuModule,
     TabMenuModule,
+    AvatarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

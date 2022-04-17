@@ -27,17 +27,17 @@
       <div class="row mb-95">
         <div class="col-xl-7 col-lg-6">
 <!--          <h5>Positioned at Left</h5>-->
-<p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="4"
-thumbnailsPosition="left">
-<ng-template pTemplate="item" let-item class="overflow-hidden">
-    <img [src]="imgPrefix + item" class="img-fluid overflow-hidden" style="width: 100%; display: block;" />
-</ng-template>
-<ng-template pTemplate="thumbnail" let-item>
-    <div class="overflow-hidden grid grid-nogutter justify-content-center" style="max-width: 10vw">
-        <img class="img-fluid" [src]="imgPrefix + item"/>
-    </div>
-</ng-template>
-</p-galleria>
+          <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="4"
+          thumbnailsPosition="left">
+          <ng-template pTemplate="item" let-item class="overflow-hidden">
+              <img [src]="imgPrefix + item" class="img-fluid overflow-hidden" style="width: 100%; display: block;" />
+          </ng-template>
+          <ng-template pTemplate="thumbnail" let-item>
+              <div class="overflow-hidden grid grid-nogutter justify-content-center" style="max-width: 10vw">
+                  <img class="img-fluid" [src]="imgPrefix + item"/>
+              </div>
+          </ng-template>
+          </p-galleria>
         </div>
         <div class="col-xl-5 col-lg-6">
           <div class="shop-details-content">
