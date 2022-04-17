@@ -7,6 +7,8 @@
         <div class="col-12">
           <div class="slider-active">
 
+
+            
             <div class="single-slider slider-bg" *ngFor="let slide of slider" style="background-image: url({{imgPrefix+slide.slider_img}});" >
               <div class="slider-content">
                 <h5 data-animation="fadeInUp" data-delay=".3s">{{slide.title}} !</h5>
@@ -15,10 +17,6 @@
                 <a routerLink="/shop" class="btn yellow-btn" data-animation="fadeInUp" data-delay="1s">Shop Now</a>
               </div>
 
-              <!-- <div class="slider-img" data-animation="fadeInRight" data-delay="1.2s">
-                <img src="assets/img/slider/t_slider_img01.png" alt="">
-              </div> -->
-            
             </div>
          
          
@@ -131,7 +129,7 @@
                 <li><a [routerLink]="['/product-details', offer.id]"><i class="flaticon-witness"></i></a></li>
               </ul>
             </div>
-            <div class="exclusive-item-content">
+            <div  class="exclusive-item-content">
               <h5><a [routerLink]="['/product-details', offer.id]">{{offer.product_name_en}}</a></h5>
               <div class="exclusive--item--price">
                 <del class="old-price">${{offer.selling_price}}</del>
@@ -872,6 +870,3 @@
 
 </main>
 <!-- main-area-end -->
-<button class="scroll-top scroll-to-target open" data-target="html">
-  <i class="fas fa-angle-up"></i>
-</button>

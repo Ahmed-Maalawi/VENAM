@@ -1,11 +1,11 @@
-
+ 
 
 <!-- preloader  -->
 
 <app-navbar></app-navbar>
 <!-- main-area -->
 
-<router-outlet></router-outlet>
+<router-outlet (activate)="onActivate($event)"></router-outlet>
 <!-- main-area-end -->
 
 <!-- footer-area -->

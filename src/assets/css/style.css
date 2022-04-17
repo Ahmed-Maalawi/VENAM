@@ -355,7 +355,7 @@ label {
 .mobile-menu .navigation li.active > a,
 .mobile-menu .navigation li ul li.active > a,
 .mobile-menu .social-links li a:hover {
-	color: #ff6000;
+	color: #00a0b4;
 }
 
 /* All-background */
@@ -363,7 +363,7 @@ label {
 .navbar-wrap > ul > li > a::before,
 .header-shop-cart .minicart .checkout-link a,
 .btn.yellow-btn {
-	background: #f7ba01;
+	background: #00a0b4;
 }
 .btn,
 .blue-bg,
@@ -1001,7 +1001,7 @@ label {
     text-transform: uppercase;
     color: #252525;
     font-weight: 700;
-    background: #f7ba01;
+    background: #35c7df;
 	font-family: 'Josefin Sans', sans-serif;
 	display: flex;
 	align-items: center;
