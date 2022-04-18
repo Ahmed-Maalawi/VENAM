@@ -27,22 +27,22 @@
       <div class="row mb-95">
         <div class="col-xl-7 col-lg-6">
 <!--          <h5>Positioned at Left</h5>-->
-<p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="4"
-thumbnailsPosition="left">
-<ng-template pTemplate="item" let-item class="overflow-hidden">
-    <img [src]="imgPrefix + item" class="img-fluid overflow-hidden" style="width: 100%; display: block;" />
-</ng-template>
-<ng-template pTemplate="thumbnail" let-item>
-    <div class="overflow-hidden grid grid-nogutter justify-content-center" style="max-width: 10vw">
-        <img class="img-fluid" [src]="imgPrefix + item"/>
-    </div>
-</ng-template>
-</p-galleria>
+          <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="4"
+          thumbnailsPosition="left">
+          <ng-template pTemplate="item" let-item class="overflow-hidden">
+              <img [src]="imgPrefix + item" class="img-fluid overflow-hidden" style="width: 100%; display: block;" />
+          </ng-template>
+          <ng-template pTemplate="thumbnail" let-item>
+              <div class="overflow-hidden grid grid-nogutter justify-content-center" style="max-width: 10vw">
+                  <img class="img-fluid" [src]="imgPrefix + item"/>
+              </div>
+          </ng-template>
+          </p-galleria>
         </div>
         <div class="col-xl-5 col-lg-6">
           <div class="shop-details-content">
             <span class="stock-info">In Stock</span>
-            <h2>{{ currentProduct[0].product_name_en }}</h2>
+            <h2>{{ currentProduct[0]?.product_name_en }}</h2>
             <div class="shop-details-review">
               <!-- <div class="rating">
                 <i class="fas fa-star"></i>
@@ -51,15 +51,15 @@ thumbnailsPosition="left">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
               </div> -->
-              <p-rating [ngModel]="currentProduct[0].rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
+              <p-rating [ngModel]="currentProduct[0]?.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
               <span>-  Customer Reviews</span>
             </div>
             <div class="shop-details-price">
-              <h2 *ngIf="currentProduct[0].special_offer">EGP {{ currentProduct[0].discount_price}} <del>EGP {{ currentProduct[0].selling_price}}</del></h2>
-              <h2 *ngIf="!currentProduct[0].special_offer">EGP {{ currentProduct[0].selling_price}}</h2>
+              <h2 *ngIf="currentProduct[0]?.special_offer">EGP {{ currentProduct[0]?.discount_price}} <del>EGP {{ currentProduct[0]?.selling_price}}</del></h2>
+              <h2 *ngIf="!currentProduct[0]?.special_offer">EGP {{ currentProduct[0]?.selling_price}}</h2>
             </div>
 <!--            <p>Cramond Leopard & Pythong Print Anorak Jacket In Beige but also the leap into electronic typesetting, remaining</p>-->
-            <p>{{ currentProduct[0].short_descp_en }}</p>
+            <p>{{ currentProduct[0]?.short_descp_en }}</p>
             <div class="product-details-size mb-40">
               <span>Size : </span>
               <a href="#">Guide</a>
@@ -86,11 +86,14 @@ thumbnailsPosition="left">
               <a href="#" class="btn add-card-btn">ADD TO CART</a>
             </div>
             <div class="shop-details-bottom">
-              <h5><a href="#"><i class="far fa-heart"></i> Add To Wishlist</a></h5>
+              <h5><a (click)="addToFav(currentProduct[0])"><i class="far fa-heart"></i> Add To Wishlist</a></h5>
               <ul>
                 <li>
                   <span>Tag : </span>
-                  <a href="#">clothing</a>
+                  <a href="#">
+                    <p-chip label="{{ currentProduct[0]?.product_slug_en }}"></p-chip>
+                  </a>
+                  <!-- <a href="#">clothing</a> -->
                 </li>
                 <li>
                   <span>CATEGORIES :</span>
@@ -117,12 +120,12 @@ thumbnailsPosition="left">
                       <div class="row">
                         <div class="col-xl-3 col-md-4">
                           <div class="product-desc-img">
-                            <img [src]="imgPrefix + currentProduct[0].product_thambnail" alt="">
+                            <img [src]="imgPrefix + currentProduct[0]?.product_thambnail" alt="">
                           </div>
                         </div>
                         <div class="col-xl-9 col-md-8">
-                          <h5 class="small-title">{{ currentProduct[0].product_name_en }}</h5>
-                          <p>{{ currentProduct[0].long_descp_en }}</p>
+                          <h5 class="small-title">{{ currentProduct[0]?.product_name_en }}</h5>
+                          <p>{{ currentProduct[0]?.long_descp_en }}</p>
                           <ul class="product-desc-list">
                             <li>65% poly, 35% rayon</li>
                             <li>Hand wash cold</li>
@@ -254,7 +257,7 @@ thumbnailsPosition="left">
                   <div class="row related-product-active">
                     <div class="col-12">
 <!--                      <div>Some tags before</div>-->
-                      <owl-carousel-o style="" [options]="relatedProducts">
+                      <owl-carousel-o [options]="relatedProducts">
                         <ng-template carouselSlide *ngFor="let item of relatedProductsArr">
                           <div class="exclusive-item exclusive-item-three text-center">
                             <div class="exclusive-item-thumb">

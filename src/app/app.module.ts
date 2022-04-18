@@ -35,6 +35,11 @@ import {DropdownModule} from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import {RatingModule} from 'primeng/rating';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import { ChipModule } from 'primeng/chip';
+import { ProfileComponent } from './components/profile/profile.component';
+import {MenuModule} from 'primeng/menu';
+import {TabMenuModule} from 'primeng/tabmenu';
+import {AvatarModule} from 'primeng/avatar';
 
 @NgModule({
   declarations: [
@@ -56,6 +61,7 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
     BlogComponent,
     BlogDetailsComponent,
     ContactComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +81,10 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
     FormsModule,
     RatingModule,
     DynamicDialogModule,
+    ChipModule,
+    MenuModule,
+    TabMenuModule,
+    AvatarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

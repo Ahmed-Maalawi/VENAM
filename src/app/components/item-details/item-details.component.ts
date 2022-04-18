@@ -1,7 +1,10 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Customer } from './../../models/customer.model';
+import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductDetailsService} from "../../services/product-details.service";
 import {OwlOptions} from "ngx-owl-carousel-o";
+import { WishListService } from '../../services/wish-list.service';
+
 
 
 @Component({
@@ -18,7 +21,7 @@ export class ItemDetailsComponent implements OnInit {
   // @Output() value:string | any;
   // @Output() valueChange: new EventEmitter<any>();
 
-  constructor(private _ActivatedRoute:ActivatedRoute, private _ProductDetailsService:ProductDetailsService, private _Router:Router) {
+  constructor(private _ActivatedRoute:ActivatedRoute, private _ProductDetailsService:ProductDetailsService, private _Router:Router, private _WishListService:WishListService) {
 
 
   }
@@ -87,7 +90,7 @@ export class ItemDetailsComponent implements OnInit {
         items: 2
       },
       740: {
-        items: 3
+        items: 4
       },
       940: {
         items: 4
@@ -107,5 +110,10 @@ export class ItemDetailsComponent implements OnInit {
     this._Router.navigateByUrl('/', {skipLocationChange: false}).then(() => {
       this._Router.navigate([currentUrl]);
     });
+  }
+
+  addToFav(product:any) 
+  {
+    this._WishListService.add(product);
   }
 }

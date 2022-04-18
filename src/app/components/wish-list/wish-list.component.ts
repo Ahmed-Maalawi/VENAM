@@ -1,5 +1,5 @@
-import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { WishListService } from 'src/app/services/wish-list.service';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishListComponent implements OnInit {
 
-  constructor(private _UserService:UserService) { }
+  constructor(private _WishListService:WishListService) { }
 
   wishListProduct:any;
 
@@ -19,12 +19,12 @@ export class WishListComponent implements OnInit {
 
     window.scrollTo(0, 300);
 
-    this._UserService.getwishList().subscribe( response => {
+    this.wishListProduct = this._WishListService.wishListProduct;
+  }
 
-      this.wishListProduct = response['data'];
-      console.log(this.wishListProduct);
-
-    });
+  deleteProduct(item:any)
+  {
+    this._WishListService.delete(item);
   }
 
 }

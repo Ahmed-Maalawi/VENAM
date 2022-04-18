@@ -1,0 +1,4 @@
+:host ::ng-deep .p-menuitem-text{
+    text-align: left;
+    text-transform: capitalize;
+}
