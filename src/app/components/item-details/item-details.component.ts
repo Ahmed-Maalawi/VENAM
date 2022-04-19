@@ -1,4 +1,4 @@
-import { Customer } from './../../models/customer.model';
+// import { Customer } from './../../models/customer.model';
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductDetailsService} from "../../services/product-details.service";
