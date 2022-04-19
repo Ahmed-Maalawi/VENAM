@@ -116,4 +116,13 @@ export class ItemDetailsComponent implements OnInit {
   {
     this._WishListService.add(product);
   }
+  
+  refresh():void
+  {    
+    let currentUrl = this._Router.url;
+    this._Router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this._Router.onSameUrlNavigation = 'reload';
+      this._Router.navigate([currentUrl]);
+  }
+
 }
