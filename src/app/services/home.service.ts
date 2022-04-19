@@ -12,8 +12,9 @@ export class HomeService {
 
   slider(): Observable<any>
   {
-    return this._HttpClient.get('http://medicazone.online/api/zone/sliders')
+    return this._HttpClient.get('http://medicazone.online/api/zone/sliders');
   }
+
   getProduct(): Observable<any>
   {
     return this._HttpClient.get('https://medicazone.online/api/zone/sliders');
@@ -32,10 +33,10 @@ export class HomeService {
     return this._HttpClient.get('https://medicazone.online/api/zone/featured');
   }
 
-  getCategory(): Observable <any>
+  getCategory(id:number): Observable <any>
   {
 
-    return this._HttpClient.get('https://medicazone.online/api/zone/subsubcategory/product/8/sneakers-man')
+    return this._HttpClient.get(`https://medicazone.online/api/zone/subsubcategory/product/${id}/sneakers-man`);
   }
 
 

@@ -490,7 +490,7 @@
           <div class="header-top-right">
             <ul>
               <li *ngIf="checkIsLogin()">
-                <a [routerLink]="['/profile']"><p-avatar label="U" styleClass="mr-2" [style]="{'background-color': '#9c27b0', 'color': '#ffffff','cursor': 'pointer'}" shape="circle"></p-avatar></a>
+                <a [routerLink]="['/profile']"><p-avatar [label]="currentUser?.name.charAt(0)" styleClass="mr-2" [style]="{'background-color': '#9c27b0', 'color': '#ffffff','cursor': 'pointer'}" shape="circle"></p-avatar></a>
               </li>
               <li>
                 <div *ngIf="!checkIsLogin()">
@@ -523,13 +523,7 @@
               </div>
               <div class="navbar-wrap main-menu d-none d-lg-flex">
                 <ul class="navigation">
-                  <li class="dropdown"><a routerLink="/home2">Home</a>
-                    <!--<ul class="submenu">-->
-                    <!--<li><a href="index.html">Home One</a></li>-->
-                    <!--<li><a href="index-2.html">Home Two</a></li>-->
-                    <!--<li class="active"><a href="index-3.html">Home Three</a></li>-->
-                    <!--</ul>-->
-                  </li>
+                  <li class="dropdown"><a routerLink="/home2">Home</a></li>
                   <li><a routerLink="/about">About Us</a></li>
                   <li class="dropdown"><a routerLink="/">PAGES</a>
                     <ul class="submenu">
@@ -558,6 +552,7 @@
                   </li>
                   <li><a href="special.html">SPECIAL</a></li>
                   <li><a routerLink="/contact">contacts</a></li>
+                  <li><a routerLink="/contact">track order</a></li>
                 </ul>
               </div>
               <div class="header-action d-none d-md-block">

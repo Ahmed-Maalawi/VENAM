@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { UserService } from 'src/app/services/user.service';
 import {AuthService} from "../../services/auth.service";
 
 
@@ -14,11 +15,20 @@ import {AuthService} from "../../services/auth.service";
 export class NavbarComponent implements OnInit {
 
   logoutMessage:string = '';
-
-  constructor(private _AuthService:AuthService, private _Router:Router, private _MessageService:MessageService) { }
+  currentUser:any;
+  constructor(private _AuthService:AuthService, private _MessageService:MessageService) { 
+    this.currentUser = this._AuthService.currentUser;
+    // console.log(this.currentUser);
+    
+  }
 
   
-  ngOnInit(): void { }
+
+  ngOnInit(): void { 
+
+    // console.log(this.currentUser);
+    
+  }
 
   logoutClick(): void
   {
