@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { country } from 'src/app/model/country';
 import { UserService } from 'src/app/services/user.service';
 import {AuthService} from "../../services/auth.service";
 
@@ -12,12 +13,22 @@ import {AuthService} from "../../services/auth.service";
   providers: [MessageService]
 })
 
+
+
 export class NavbarComponent implements OnInit {
 
   logoutMessage:string = '';
   currentUser:any;
-  constructor(private _AuthService:AuthService, private _MessageService:MessageService) { 
-    this.currentUser = this._AuthService.currentUser;
+  selectedCountry:country =  {name: 'Egypt', code: 'EG', img:'eg.svg'};
+
+  cities: country[];
+  constructor(private _AuthService:AuthService, private _MessageService:MessageService) {
+
+    this.cities = [
+      {name: 'EG', code: 'EG', img:'eg.svg'},
+      {name: 'US', code: 'US', img:'us.svg'}
+    ];
+    // this.currentUser = this._AuthService.currentUser;
     // console.log(this.currentUser);
     
   }

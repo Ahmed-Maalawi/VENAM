@@ -25,18 +25,18 @@ export class AuthService {
     return this._HttpClient.post('https://medicazone.online/api/auth/login', Data);
   }
 
-  // getUserData(): Observable <any>
-  // {
-  //   let token = this.getToken();
+  getUserData(): Observable <any>
+  {
+    let token = this.getToken();
 
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${token}`,
-  //   });
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    });
 
 
-  //   return this._HttpClient.get('https://medicazone.online/api/auth/user-profile', {headers: headers});
-  // }
+    return this._HttpClient.get('https://medicazone.online/api/auth/user-profile', {headers: headers});
+  }
 
   saveUser(userToken:string): void
   {
