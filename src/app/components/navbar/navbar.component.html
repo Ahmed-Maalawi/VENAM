@@ -22,8 +22,8 @@
                     </div>
                   </div> -->
                   <select id="" name="dropdown" class="ml-1">
-                    <option value ="usd">usd</option>
-                    <option value ="egp">egp</option>
+                    <option value ="usd">USD</option>
+                    <option value ="egp">EGP</option>
                   </select>
                 </div>
               </li>
@@ -47,10 +47,9 @@
                 -->
                   <span translate="NAVBAR.TOPBAR.LANGUAGE"></span>
                   <select class="ml-1" #selLang (change)="translateLanguageTo(selLang.value)">
-                    <option value="ar">ar</option>
-                    <option value="en" selected>en</option>
-                  </select> 
-
+                    <option value="ar">Arabic</option>
+                    <option value="en" selected>English</option>
+                  </select>
                   <!-- <div class="dropdown"> -->
                     <!-- <button class="dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">
@@ -117,7 +116,9 @@
           <div class="menu-wrap">
             <nav class="menu-nav show">
               <div class="logo">
-                <a routerLink="home"><img src="assets/img/logo/logo_red.png" alt="Logo"></a>
+                <a routerLink="home">
+                  <h1>Medica<span>Zone</span> </h1>
+                </a>
               </div>
               <div class="navbar-wrap main-menu d-none d-lg-flex">
                 <ul class="navigation">
