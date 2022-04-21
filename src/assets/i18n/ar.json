@@ -1,0 +1,16 @@
+{
+    "NAVBAR":{
+        "TOPBAR": {
+            "LANGUAGE": "اللغة",
+            "currency": "العملة"
+        },
+        "MAINBAR":{
+            "HOME": "الرئسية",
+            "ABOUTUS": "من نحن",
+            "BLOG": "الموسوعة",
+            "SHOP": "السوق",
+            "CONTACTS": "تواصل معنا",
+            "TRACKORDER": "تتبع الطلب"
+        }
+    }
+}

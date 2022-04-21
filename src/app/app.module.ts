@@ -25,7 +25,7 @@ import {PasswordModule} from 'primeng/password';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
-import {HttpClientModule} from "@angular/common/http";
+// import {HttpClientModule} from "@angular/common/http";
 import {ToastModule} from 'primeng/toast';
 import { ContactComponent } from './components/contact/contact.component';
 import {ButtonModule} from 'primeng/button';
@@ -40,6 +40,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import {MenuModule} from 'primeng/menu';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {AvatarModule} from 'primeng/avatar';
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -85,8 +89,20 @@ import {AvatarModule} from 'primeng/avatar';
     MenuModule,
     TabMenuModule,
     AvatarModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// Factory function required during AOT compilation
+export function httpTranslateLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

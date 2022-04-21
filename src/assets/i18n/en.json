@@ -1,0 +1,16 @@
+{
+    "NAVBAR":{
+        "TOPBAR": {
+            "LANGUAGE": "Change Language",
+            "currency": "currency"
+        },
+        "MAINBAR":{
+            "HOME": "home",
+            "ABOUTUS": "about us",
+            "BLOG": "blog",
+            "SHOP": "shop",
+            "CONTACTS": "contacts",
+            "TRACKORDER": "track order"
+        }
+    }
+}

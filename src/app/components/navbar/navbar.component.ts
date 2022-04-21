@@ -4,7 +4,7 @@ import { MessageService } from 'primeng/api';
 import { country } from 'src/app/model/country';
 import { UserService } from 'src/app/services/user.service';
 import {AuthService} from "../../services/auth.service";
-
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -19,14 +19,14 @@ export class NavbarComponent implements OnInit {
 
   logoutMessage:string = '';
   currentUser:any;
-  selectedCountry:country =  {name: 'Egypt', code: 'EG', img:'eg.svg'};
+  selectedCountry:country =  {name: 'ar', code: 'EG', img:'eg.svg', value:'ar'};
 
   cities: country[];
-  constructor(private _AuthService:AuthService, private _MessageService:MessageService) {
+  constructor(private _AuthService:AuthService, private _MessageService:MessageService, private _TranslateService:TranslateService) {
 
     this.cities = [
-      {name: 'EG', code: 'EG', img:'eg.svg'},
-      {name: 'US', code: 'US', img:'us.svg'}
+      {name: 'ar', code: 'EG', img:'eg.svg', value:'ar'},
+      {name: 'en', code: 'US', img:'us.svg', value:'en'}
     ];
     // this.currentUser = this._AuthService.currentUser;
     // console.log(this.currentUser);
@@ -69,6 +69,11 @@ export class NavbarComponent implements OnInit {
   showInfo(message:string): void
   {
     this._MessageService.add({severity:'info', summary: 'LogOut', detail: message, key: 'logoutMessage'});
+  }
+
+  translateLanguageTo(lang: string) {
+    this._TranslateService.use(lang);
+    console.log(lang);
   }
 
 }
