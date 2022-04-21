@@ -76,4 +76,9 @@ export class NavbarComponent implements OnInit {
     console.log(lang);
   }
 
+  displayModal: boolean = false;
+
+  showModalDialog() {
+    this.displayModal = true;
+}
 }

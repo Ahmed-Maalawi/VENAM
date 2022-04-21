@@ -9,7 +9,7 @@
             <ul>
               <li>
                 <div class="ship-to">
-                  <span>currency</span>
+                  <span translate="NAVBAR.TOPBAR.currency"></span>
                   <!-- <div class="dropdown">
                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">
@@ -45,7 +45,8 @@
                   </ng-template>
                   </p-dropdown>
                 -->
-                  Change Language : <select #selLang (change)="translateLanguageTo(selLang.value)">
+                  <span translate="NAVBAR.TOPBAR.LANGUAGE"></span>
+                  <select class="ml-1" #selLang (change)="translateLanguageTo(selLang.value)">
                     <option value="ar">ar</option>
                     <option value="en" selected>en</option>
                   </select> 
@@ -67,11 +68,9 @@
                 <div class="heder-top-guide">
                   <div class="dropdown">
                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">
-                      Sell With Us
-                    </button>
+                    aria-haspopup="true" aria-expanded="false" translate="NAVBAR.TOPBAR.SELLER-AUTH.VALUE"></button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                      <a class="dropdown-item" href="https://medicazone.online/admin/login">Seller Login</a>
+                      <a class="dropdown-item" href="https://medicazone.online/admin/login" translate="NAVBAR.TOPBAR.SELLER-AUTH.LINK"></a>
                     </div>
                   </div>
                 </div>
@@ -94,12 +93,12 @@
               <li>
                 <div *ngIf="!checkIsLogin()">
                   <a routerLink="/register">
-                    <i class="flaticon-user"></i>Register
+                    <i class="flaticon-user"></i>{{ 'NAVBAR.TOPBAR.AUTH.REGISTER' | translate }}
                   </a>
-                  <span>or</span>
-                  <a routerLink="/login">Login </a>
+                  <span translate="NAVBAR.TOPBAR.AUTH.OR"></span>
+                  <a routerLink="/login" translate="NAVBAR.TOPBAR.AUTH.LOGIN"></a>
                 </div>
-                <a style="cursor: pointer;" *ngIf="checkIsLogin()" (click)="logoutClick()">Logout</a>
+                <a style="cursor: pointer;" *ngIf="checkIsLogin()" (click)="logoutClick()" translate="NAVBAR.TOPBAR.AUTH.LOGOUT"></a>
               </li>
             </ul>
           </div>
@@ -151,8 +150,17 @@
                   </li>
                   <!-- <li><a href="special.html">SPECIAL</a></li> -->
                   <li><a routerLink="/contact" translate="NAVBAR.MAINBAR.CONTACTS"></a></li>
-                  <li><a routerLink="/contact" translate="NAVBAR.MAINBAR.TRACKORDER"></a></li>
+                  <li><a type="button" (click)="showModalDialog()" icon="pi pi-external-link" label="Show" translate="NAVBAR.MAINBAR.TRACKORDER"></a></li>
                 </ul>
+                <p-dialog header="Header" position="top-right" [(visible)]="displayModal" [modal]="true" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}" 
+                [draggable]="false" [resizable]="true">
+                  <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <ng-template pTemplate="footer">
+                    <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+                  </ng-template>
+                </p-dialog>
               </div>
               <div class="header-action d-none d-md-block">
                 <ul>
@@ -263,7 +271,7 @@
           <div class="header-category d-none d-lg-block">
             <a href="#" class="cat-toggle">
               <i class="flaticon-menu"></i>
-              ALL DEPARTMENT
+              {{'NAVBAR.FOOTERBAR.MENU' | translate}}
             </a>
             <ul class="category-menu">
               <li class="has-dropdown">
@@ -428,9 +436,9 @@
           <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
             <div class="header-search-wrap">
               <form action="#">
-                <input type="text" placeholder="Search for your item's type.....">
+                <input type="text" placeholder="{{ 'NAVBAR.FOOTERBAR.SEARCH.PLACEHOLDER' | translate }}">
                 <select class="custom-select">
-                  <option selected="">All Categories</option>
+                  <option selected="">{{ 'NAVBAR.FOOTERBAR.SEARCH.ALL-CATEGORY' | translate }}</option>
                   <option>Women's Clothing</option>
                   <option>Men's Clothing</option>
                   <option>Computer & Office</option>
@@ -449,11 +457,11 @@
               </form>
             </div>
             <div class="header-free-shopping">
-              <p>Free Shipping on Orders <span>$39+</span></p>
+              <p>{{ 'NAVBAR.FOOTERBAR.FREESHAPING' | translate }} <span>$39+</span></p>
             </div>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   </div>
   <p-toast position="bottom-right" key="logoutMessage"></p-toast>

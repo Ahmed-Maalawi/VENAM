@@ -25,7 +25,7 @@ import {PasswordModule} from 'primeng/password';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
-// import {HttpClientModule} from "@angular/common/http";
+import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
 import { ContactComponent } from './components/contact/contact.component';
 import {ButtonModule} from 'primeng/button';
@@ -87,6 +87,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     DynamicDialogModule,
     ChipModule,
     MenuModule,
+    DialogModule,
     TabMenuModule,
     AvatarModule,
     TranslateModule.forRoot({
