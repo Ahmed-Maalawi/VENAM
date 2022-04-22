@@ -2,7 +2,17 @@
     "NAVBAR":{
         "TOPBAR": {
             "LANGUAGE": "Change Language",
-            "currency": "currency"
+            "currency": "currency",
+            "SELLER-AUTH": {
+                "VALUE": "Sell With Us",
+                "LINK": "Seller Login"
+            },
+            "AUTH": {
+                "LOGIN": "login",
+                "REGISTER": "REGISTER",
+                "OR": "or",
+                "LOGOUT": "logout"
+            }
         },
         "MAINBAR":{
             "HOME": "home",
@@ -11,6 +21,14 @@
             "SHOP": "shop",
             "CONTACTS": "contacts",
             "TRACKORDER": "track order"
+        },
+        "FOOTERBAR": {
+            "MENU": "ALL DEPARTMENT",
+            "SEARCH": {
+                "PLACEHOLDER": "Search for your item's type.....",
+                "ALL-CATEGORY": "All Categories"
+            },
+            "FREESHAPING": "Free Shipping on Orders"
         }
     }
 }

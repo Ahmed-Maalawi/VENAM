@@ -127,4 +127,9 @@ if ($('.mobile-menu').length) {
 
 
 
+  displayModal: boolean = false;
+
+  showModalDialog() {
+    this.displayModal = true;
+}
 }

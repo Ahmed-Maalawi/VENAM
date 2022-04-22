@@ -1,8 +1,19 @@
 {
+
     "NAVBAR":{
         "TOPBAR": {
             "LANGUAGE": "اللغة",
-            "currency": "العملة"
+            "currency": "العملة",
+            "SELLER-AUTH": {
+                "VALUE": "بيع معنا",
+                "LINK": "تسجيل الدخول كبائع"
+            },
+            "AUTH": {
+                "LOGIN": "تسجيل الدخول",
+                "REGISTER": "انشاء حساب",
+                "OR": "او",
+                "LOGOUT": "تسجيل الخروج"
+            }
         },
         "MAINBAR":{
             "HOME": "الرئسية",
@@ -11,6 +22,14 @@
             "SHOP": "السوق",
             "CONTACTS": "تواصل معنا",
             "TRACKORDER": "تتبع الطلب"
+        },
+        "FOOTERBAR": {
+            "MENU": "جميع الاقسام",
+            "SEARCH": {
+                "PLACEHOLDER": "... ابحث عن المنتج",
+                "ALL-CATEGORY": "جميع الاقسام"
+            },
+            "FREESHAPING": "توصيل مجاني للطلبات"
         }
     }
 }
