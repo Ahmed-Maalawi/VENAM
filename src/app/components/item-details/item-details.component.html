@@ -270,14 +270,14 @@
                   </div>
                   <div class="row related-product-active">
                     <div class="col-12">
-                      <!--                      <div>Some tags before</div>-->
+                  
                       <owl-carousel-o [options]="relatedProducts">
                         <ng-template carouselSlide *ngFor="let item of relatedProductsArr">
                           <div class="exclusive-item exclusive-item-three text-center">
                             <div class="exclusive-item-thumb">
                               <a [routerLink]="['../', item.id]">
                                 <img [src]="imgPrefix + item.product_thambnail" [alt]="item.product_name_en">
-                                <!--                                <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product01.jpg" alt="">-->
+                                <!--<img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product01.jpg" alt="">-->
                               </a>
                               <ul class="action">
                                 <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
@@ -419,6 +419,12 @@
                         <!--                          </div>-->
                         <!--                        </ng-template>-->
                       </owl-carousel-o>
+                      
+
+
+
+
+                      
                       <!--                      <div>Some tags after</div>-->
                     </div>
                     <!--                    <div class="col-xl-3">-->

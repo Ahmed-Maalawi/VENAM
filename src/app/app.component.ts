@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -9,12 +10,14 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   
   title = 'project_1';
+  router: any;
 
   constructor(private _TranslateService:TranslateService)
   {
     this._TranslateService.addLangs(['en', 'ar']);
     this._TranslateService.setDefaultLang('en');
   }
+
 
   onActivate(event: any)
   {
@@ -23,7 +26,7 @@ export class AppComponent {
     window.scroll({ 
       top: 0, 
       left: 0, 
-      behavior: 'smooth' 
+       
     });
  
      //or document.body.scrollTop = 0;

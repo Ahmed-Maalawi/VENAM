@@ -104,8 +104,12 @@ $("[data-background]").each(function () {
 =============================================*/
 $('.cat-toggle').on('click', function () {
 	$('.category-menu').slideToggle(500);
+	console.log("here")
 	return false;
 });
+
+
+
 $('.more_slide_open').slideUp();
 $('.more_categories').on('click', function () {
 	$(this).toggleClass('show');
