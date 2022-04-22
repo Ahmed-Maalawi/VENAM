@@ -1,5 +1,4 @@
 {
-
     "NAVBAR":{
         "TOPBAR": {
             "LANGUAGE": "اللغة",
@@ -30,6 +29,15 @@
                 "ALL-CATEGORY": "جميع الاقسام"
             },
             "FREESHAPING": "توصيل مجاني للطلبات"
+        }
+    },
+    "MAIN": {
+        "BEST-SELLING-PRODUCTS": "أفضل المنتجات مبيعًا",
+        "SUBTITLE": "مجموعة حصرية",
+        "DEAL-OF-DAY":"صفقة اليوم",
+        "DEEDBACK" : {
+            "TITLE": "",
+            "SUB-TITLE": ""
         }
     }
 }
