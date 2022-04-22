@@ -45,7 +45,7 @@
               </a>
             </div>
             <div class="list-product-content p-1">
-              <h6><a [routerLink]="['/product-details', offer.id]">{{offer.product_name_en}}</a></h6>
+              <h6><a [routerLink]="['/product-details', offer.id]">{{offer.product_name_en| slice:0:10}}...</a></h6>
               <p>EGP {{ offer.discount_price}}<span> 50% off </span></p>
               <!-- <div class="rating">
                 <i class="fas fa-star"></i>
@@ -276,7 +276,7 @@
                         </a>
                       </div>
                       <div class="super-deal-content">
-                        <h6><a [routerLink]="['/product-details', item.id]">{{ item.product_name_en }}</a></h6>
+                        <h6><a [routerLink]="['/product-details', item.id]">{{item.product_name_en| slice:0:25}}..</a></h6>
                         <p>EGP {{ item.discount_price}}<span>"{{" 50% off "}}"</span></p>
                       </div>
                     </div>

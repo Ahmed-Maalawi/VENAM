@@ -1,15 +1,10 @@
+
+
 .header-category .category-menu {
-
-    transform: translateY(15px) translateZ(0);
-    transition: all 0.3s ease-out 0s;
-
-}
-
-.header-category:hover .category-menu {
     visibility: visible;
     opacity: 1;
     transform: none;
-
+display: none;
 
 }
 

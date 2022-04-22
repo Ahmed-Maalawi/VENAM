@@ -124,7 +124,9 @@
               </div>
               <div class="navbar-wrap main-menu d-none d-lg-flex">
                 <ul class="navigation">
-                  <li class="dropdown"><a routerLink="/home2" translate="NAVBAR.MAINBAR.HOME"></a></li>
+                  <li class="dropdown">
+                    <a routerLink="/home2" translate="NAVBAR.MAINBAR.HOME"></a>
+                  </li>
                   <li><a routerLink="/about" translate="NAVBAR.MAINBAR.ABOUTUS"></a></li>
                   <!-- <li class="dropdown"><a routerLink="/">PAGES</a>
                     <ul class="submenu">
@@ -234,7 +236,12 @@
             <div class="close-btn"><i class="fas fa-times"></i></div>
 
             <nav class="menu-box">
-              <div class="nav-logo"><a routerLink="/home2"><img src="assets/img/logo/white_logo.png" alt="" title=""></a>
+              <div class="nav-logo">
+                <div class="logo">
+                  <a routerLink="home">
+                    <h1>Medica<span>Zone</span> </h1>
+                  </a>
+                </div>
               </div>
               <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -263,7 +270,7 @@
       <div class="row align-items-center">
         <div class="col-xl-3 col-lg-4 d-none d-lg-block">
           <div class="header-category d-none d-lg-block">
-            <a href="#" class="cat-toggle">
+            <a class="cat-toggle" >
               <i class="flaticon-menu"></i>
               ALL DEPARTMENT
             </a>
