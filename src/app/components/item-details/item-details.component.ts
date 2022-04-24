@@ -1,5 +1,5 @@
 // import { Customer } from './../../models/customer.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductDetailsService} from "../../services/product-details.service";
 import {OwlOptions} from "ngx-owl-carousel-o";
@@ -27,23 +27,19 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   images:any = [];
-
+  
   responsiveOptions:any[] = [
     {
-      breakpoint: '1024px',
-      numVisible: 5
+        breakpoint: '1024px',
+        numVisible: 5
     },
     {
-      breakpoint: '960px',
-      numVisible: 4
+        breakpoint: '768px',
+        numVisible: 3
     },
     {
-      breakpoint: '768px',
-      numVisible: 4
-    },
-    {
-      breakpoint: '560px',
-      numVisible: 1
+        breakpoint: '560px',
+        numVisible: 1
     }
   ];
 

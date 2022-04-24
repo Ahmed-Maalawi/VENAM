@@ -38,6 +38,7 @@
       <div class="row justify-content-center">
 
         <div class="col-xl-4 col-md-6 col-sm-10"  *ngFor="let offer of hotDeals | slice:0:3;">
+          
           <div class="slider-bottom-product list-product-item mb-30">
             <div class="list-product-thumb">
               <a [routerLink]="['/product-details', offer.id]">
@@ -130,7 +131,7 @@
               </ul>
             </div>
             <div  class="exclusive-item-content">
-              <h5><a [routerLink]="['/product-details', offer.id]">{{offer.product_name_en}}</a></h5>
+              <h5><a class="text-truncate" [routerLink]="['/product-details', offer.id]">{{offer.product_name_en}}</a></h5>
               <div class="exclusive--item--price" *ngIf="offer.special_offer">
                 <del class="old-price">EGP {{ offer.selling_price }}</del>
                 <span class="new-price">EGP {{ offer.discount_price }}</span>
@@ -276,7 +277,7 @@
                         </a>
                       </div>
                       <div class="super-deal-content">
-                        <h6><a [routerLink]="['/product-details', item.id]">{{item.product_name_en| slice:0:25}}..</a></h6>
+                        <h6><a class="text-truncate" [routerLink]="['/product-details', item.id]">{{item.product_name_en| slice:0:25}}..</a></h6>
                         <p>EGP {{ item.discount_price}}<span>"{{" 50% off "}}"</span></p>
                       </div>
                     </div>
@@ -487,7 +488,7 @@
               </ul>
             </div>
             <div class="exclusive-item-content">
-              <h5><a [routerLink]="['/product-details', offer.id]">{{ offer.product_name_en }}</a></h5>
+              <h5><a class="text-truncate" [routerLink]="['/product-details', offer.id]">{{ offer.product_name_en }}</a></h5>
               <div class="exclusive--item--price" *ngIf="offer.special_offer == true">
                 <del class="old-price">EGP {{ offer.selling_price }}</del>
                 <span class="new-price">EGP {{ offer.discount_price }}</span>
