@@ -1,3 +1,15 @@
+<!-- <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '640px', 'margin-top':'2em'}" [numVisible]="5"
+    [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [showIndicators]="true" [showItemNavigatorsOnHover]="true"
+    [showIndicatorsOnItem]="true"> 
+    <ng-template pTemplate="item" let-item>
+        <img [src]="imgPrefix + item" style="width: 100%; display: block;" />
+    </ng-template>
+    <ng-template pTemplate="thumbnail" let-item>
+        <div class="grid grid-nogutter justify-content-center">
+            <img [src]="imgPrefix + item" style="display: block;" />
+        </div>
+    </ng-template>
+</p-galleria> -->
 <!-- main-area -->
 <main>
 
@@ -21,37 +33,28 @@
     </div>
   </section>
   <!-- breadcrumb-area-end -->
-
   <!-- shop-details-area -->
   <section class="shop-details-area pt-100 pb-100">
     <div class="container">
       <div class="row mb-95">
         <div class="col-xl-7 col-lg-6">
-          <!--          <h5>Positioned at Left</h5>-->
-          <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}"
-            [numVisible]="4" thumbnailsPosition="left">
-            <ng-template pTemplate="item" let-item class="overflow-hidden">
-              <img [src]="imgPrefix + item" class="img-fluid overflow-hidden" style="width: 100%; display: block;" />
-            </ng-template>
-            <ng-template pTemplate="thumbnail" let-item>
-              <div class="overflow-hidden grid grid-nogutter justify-content-center" style="max-width: 10vw">
-                <img class="img-fluid" [src]="imgPrefix + item" />
-              </div>
-            </ng-template>
+          <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="4"
+              thumbnailsPosition="left">
+              <ng-template pTemplate="item" let-item>
+                  <img [src]="imgPrefix + item" class="img-fluid" style="width: 100%; display: block;" />
+              </ng-template>
+              <ng-template pTemplate="thumbnail" let-item>
+                  <div class="grid grid-nogutter justify-content-center">
+                      <img [src]="imgPrefix + item" class="img-fluid"/>
+                  </div>
+              </ng-template>
           </p-galleria>
         </div>
         <div class="col-xl-5 col-lg-6">
           <div class="shop-details-content">
             <span class="stock-info">In Stock</span>
-            <h2>{{ currentProduct[0]?.product_name_en }}</h2>
+            <h2>{{ currentProduct[0].product_name_en }}</h2>
             <div class="shop-details-review">
-              <!-- <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div> -->
               <p-rating [ngModel]="currentProduct[0]?.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
               <span>- Customer Reviews</span>
             </div>
@@ -112,7 +115,6 @@
       <div class="row">
         <div class="col-12">
           <div class="product-desc-wrap mb-100">
-
             <p-tabView>
               <p-tabPanel header="Product Details">
                 <div class="tab-content mt-50" id="myTabContent">
@@ -128,130 +130,6 @@
                         <div class="col-xl-9 col-md-8">
                           <h5 class="small-title">{{ currentProduct[0]?.product_name_en }}</h5>
                           <p>{{ currentProduct[0]?.long_descp_en }}</p>
-                          <ul class="product-desc-list">
-                            <li>65% poly, 35% rayon</li>
-                            <li>Hand wash cold</li>
-                            <li>Partially lined</li>
-                            <li>Hidden front button closure with keyhole accents</li>
-                            <li>Button cuff sleeves</li>
-                            <li>Made in USA</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="val" role="tabpanel" aria-labelledby="val-tab">
-                    <div class="product-desc-content">
-                      <h4 class="title">Product Details</h4>
-                      <div class="row">
-                        <div class="col-xl-3 col-md-4">
-                          <div class="product-desc-img">
-                            <img src="assets/img/product/desc_img.jpg" alt="">
-                          </div>
-                        </div>
-                        <div class="col-xl-9 col-md-8">
-                          <h5 class="small-title">The Christina Fashion</h5>
-                          <p>Cramond Leopard & Pythong Print Anorak Jacket In Beige but also the leap into electronic
-                            typesetting, remaining Lorem
-                            Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                            the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                            make a type specimen book.</p>
-                          <ul class="product-desc-list">
-                            <li>65% poly, 35% rayon</li>
-                            <li>Hand wash cold</li>
-                            <li>Partially lined</li>
-                            <li>Hidden front button closure with keyhole accents</li>
-                            <li>Button cuff sleeves</li>
-                            <li>Made in USA</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="looks" role="tabpanel" aria-labelledby="looks-tab">
-                    <div class="product-desc-content">
-                      <h4 class="title">Product Details</h4>
-                      <div class="row">
-                        <div class="col-xl-3 col-md-4">
-                          <div class="product-desc-img">
-                            <img src="assets/img/product/desc_img.jpg" alt="">
-                          </div>
-                        </div>
-                        <div class="col-xl-9 col-md-8">
-                          <h5 class="small-title">The Christina Fashion</h5>
-                          <p>Cramond Leopard & Pythong Print Anorak Jacket In Beige but also the leap into electronic
-                            typesetting, remaining Lorem
-                            Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                            the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                            make a type specimen book.</p>
-                          <ul class="product-desc-list">
-                            <li>65% poly, 35% rayon</li>
-                            <li>Hand wash cold</li>
-                            <li>Partially lined</li>
-                            <li>Hidden front button closure with keyhole accents</li>
-                            <li>Button cuff sleeves</li>
-                            <li>Made in USA</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                    <div class="product-desc-content">
-                      <h4 class="title">Product Details</h4>
-                      <div class="row">
-                        <div class="col-xl-3 col-md-4">
-                          <div class="product-desc-img">
-                            <img src="assets/img/product/desc_img.jpg" alt="">
-                          </div>
-                        </div>
-                        <div class="col-xl-9 col-md-8">
-                          <h5 class="small-title">The Christina Fashion</h5>
-                          <p>Cramond Leopard & Pythong Print Anorak Jacket In Beige but also the leap into electronic
-                            typesetting, remaining Lorem
-                            Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                            the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                            make a type specimen book.</p>
-                          <ul class="product-desc-list">
-                            <li>65% poly, 35% rayon</li>
-                            <li>Hand wash cold</li>
-                            <li>Partially lined</li>
-                            <li>Hidden front button closure with keyhole accents</li>
-                            <li>Button cuff sleeves</li>
-                            <li>Made in USA</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="qa" role="tabpanel" aria-labelledby="qa-tab">
-                    <div class="product-desc-content">
-                      <h4 class="title">Product Details</h4>
-                      <div class="row">
-                        <div class="col-xl-3 col-md-4">
-                          <div class="product-desc-img">
-                            <img src="assets/img/product/desc_img.jpg" alt="">
-                          </div>
-                        </div>
-                        <div class="col-xl-9 col-md-8">
-                          <h5 class="small-title">The Christina Fashion</h5>
-                          <p>Cramond Leopard & Pythong Print Anorak Jacket In Beige but also the leap into electronic
-                            typesetting, remaining Lorem
-                            Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                            the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                            make a type specimen book.</p>
-                          <ul class="product-desc-list">
-                            <li>65% poly, 35% rayon</li>
-                            <li>Hand wash cold</li>
-                            <li>Partially lined</li>
-                            <li>Hidden front button closure with keyhole accents</li>
-                            <li>Button cuff sleeves</li>
-                            <li>Made in USA</li>
-                          </ul>
                         </div>
                       </div>
                     </div>
@@ -259,7 +137,7 @@
                 </div>
               </p-tabPanel>
               <p-tabPanel header="Viewers Also Like">
-                <div class="related-product-wrap pb-95 mt-50">
+                <div class="related-product-wrap pb-95 mt-50 fade tab-pane fade show active">
                   <div class="deal-day-top">
                     <div class="deal-day-title">
                       <h4 class="title">Viewers Also Liked</h4>
@@ -277,7 +155,6 @@
                             <div class="exclusive-item-thumb">
                               <a [routerLink]="['../', item.id]">
                                 <img [src]="imgPrefix + item.product_thambnail" [alt]="item.product_name_en">
-                                <!--<img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product01.jpg" alt="">-->
                               </a>
                               <ul class="action">
                                 <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
@@ -286,297 +163,22 @@
                               </ul>
                             </div>
                             <div class="exclusive-item-content">
-                              <h5><a (click)="refresh()" [routerLink]="['../', item.id]">{{ item.product_name_en}}</a></h5>
+                              <h5><a class="text-truncate" (click)="refresh()" [routerLink]="['../', item.id]">{{ item.product_name_en}}</a></h5>
                               <div class="exclusive--item--price">
                                 <del class="old-price">EGP {{ item.selling_price }}</del>
                                 <span class="new-price">EGP {{item.discount_price}}</span>
                               </div>
-                              <!-- <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                              </div> -->
                               <p-rating [ngModel]="item.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
                             </div>
                           </div>
                         </ng-template>
-                        <!--                        <ng-template carouselSlide>-->
-                        <!--                          <div class="exclusive-item exclusive-item-three text-center">-->
-                        <!--                            <div class="exclusive-item-thumb">-->
-                        <!--                              <a href="shop-details.html">-->
-                        <!--                                <img src="assets/img/product/td_product_img02.jpg" alt="">-->
-                        <!--                                <img class="overlay-product-thumb" src="  ../../../assets/img/product/td_product_img05.jpg" alt="">-->
-                        <!--                              </a>-->
-                        <!--                              <ul class="action">-->
-                        <!--                                <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
-                        <!--                                <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
-                        <!--                                <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
-                        <!--                              </ul>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="exclusive-item-content">-->
-                        <!--                              <h5><a href="shop-details.html">Luxury Fashion Bag</a></h5>-->
-                        <!--                              <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
-                        <!--                                <del class="old-price">$69.00</del>-->
-                        <!--                                <span class="new-price">$29.00</span>-->
-                        <!--                              </div>-->
-                        <!--                              <div class="rating">-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                              </div>-->
-                        <!--                            </div>-->
-                        <!--                          </div>-->
-                        <!--                        </ng-template>-->
-                        <!--                        <ng-template carouselSlide>-->
-                        <!--                          <div class="exclusive-item exclusive-item-three text-center">-->
-                        <!--                            <div class="exclusive-item-thumb">-->
-                        <!--                              <a href="shop-details.html">-->
-                        <!--                                <img src="assets/img/product/td_product_img03.jpg" alt="">-->
-                        <!--                                <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product04.jpg" alt="">-->
-                        <!--                              </a>-->
-                        <!--                              <ul class="action">-->
-                        <!--                                <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
-                        <!--                                <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
-                        <!--                                <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
-                        <!--                              </ul>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="exclusive-item-content">-->
-                        <!--                              <h5><a href="shop-details.html">Men's Lathers Jacket</a></h5>-->
-                        <!--                              <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
-                        <!--                                <del class="old-price">$69.00</del>-->
-                        <!--                                <span class="new-price">$58.00</span>-->
-                        <!--                              </div>-->
-                        <!--                              <div class="rating">-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                              </div>-->
-                        <!--                            </div>-->
-                        <!--                          </div>-->
-                        <!--                        </ng-template>-->
-                        <!--                        <ng-template carouselSlide>-->
-                        <!--                          <div class="exclusive-item exclusive-item-three text-center">-->
-                        <!--                            <div class="exclusive-item-thumb">-->
-                        <!--                              <a href="shop-details.html">-->
-                        <!--                                <img src="assets/img/product/td_product_img04.jpg" alt="">-->
-                        <!--                                <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">-->
-                        <!--                              </a>-->
-                        <!--                              <ul class="action">-->
-                        <!--                                <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
-                        <!--                                <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
-                        <!--                                <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
-                        <!--                              </ul>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="exclusive-item-content">-->
-                        <!--                              <h5><a href="shop-details.html">Women Brand T-shirt</a></h5>-->
-                        <!--                              <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
-                        <!--                                <del class="old-price">$49.00</del>-->
-                        <!--                                <span class="new-price">$21.00</span>-->
-                        <!--                              </div>-->
-                        <!--                              <div class="rating">-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                              </div>-->
-                        <!--                            </div>-->
-                        <!--                          </div>-->
-                        <!--                        </ng-template>-->
-                        <!--                        <ng-template carouselSlide>-->
-                        <!--                          <div class="exclusive-item exclusive-item-three text-center">-->
-                        <!--                            <div class="exclusive-item-thumb">-->
-                        <!--                              <a href="shop-details.html">-->
-                        <!--                                <img src="assets/img/product/td_product_img02.jpg" alt="">-->
-                        <!--                                <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">-->
-                        <!--                              </a>-->
-                        <!--                              <ul class="action">-->
-                        <!--                                <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
-                        <!--                                <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
-                        <!--                                <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
-                        <!--                              </ul>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="exclusive-item-content">-->
-                        <!--                              <h5><a href="shop-details.html">Luxury Fashion Bag</a></h5>-->
-                        <!--                              <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
-                        <!--                                <del class="old-price">$69.00</del>-->
-                        <!--                                <span class="new-price">$29.00</span>-->
-                        <!--                              </div>-->
-                        <!--                              <div class="rating">-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                                <i class="fas fa-star"></i>-->
-                        <!--                              </div>-->
-                        <!--                            </div>-->
-                        <!--                          </div>-->
-                        <!--                        </ng-template>-->
                       </owl-carousel-o>
-                      
-
-
-
-
-                      
-                      <!--                      <div>Some tags after</div>-->
                     </div>
-                    <!--                    <div class="col-xl-3">-->
-                    <!--                      <div class="exclusive-item exclusive-item-three text-center">-->
-                    <!--                        <div class="exclusive-item-thumb">-->
-                    <!--                          <a href="shop-details.html">-->
-                    <!--                            <img src="assets/img/product/td_product_img01.jpg" alt="">-->
-                    <!--                            <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product01.jpg" alt="">-->
-                    <!--                          </a>-->
-                    <!--                          <ul class="action">-->
-                    <!--                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
-                    <!--                          </ul>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="exclusive-item-content">-->
-                    <!--                          <h5><a href="shop-details.html">Farfetch Mulberry Belted</a></h5>-->
-                    <!--                          <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
-                    <!--                            <del class="old-price">$69.00</del>-->
-                    <!--                            <span class="new-price">$58.00</span>-->
-                    <!--                          </div>-->
-                    <!--                          <div class="rating">-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                          </div>-->
-                    <!--                        </div>-->
-                    <!--                      </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="col-xl-3">-->
-                    <!--                      <div class="exclusive-item exclusive-item-three text-center">-->
-                    <!--                        <div class="exclusive-item-thumb">-->
-                    <!--                          <a href="shop-details.html">-->
-                    <!--                            <img src="assets/img/product/td_product_img02.jpg" alt="">-->
-                    <!--                            <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">-->
-                    <!--                          </a>-->
-                    <!--                          <ul class="action">-->
-                    <!--                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
-                    <!--                          </ul>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="exclusive-item-content">-->
-                    <!--                          <h5><a href="shop-details.html">Luxury Fashion Bag</a></h5>-->
-                    <!--                          <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
-                    <!--                            <del class="old-price">$69.00</del>-->
-                    <!--                            <span class="new-price">$29.00</span>-->
-                    <!--                          </div>-->
-                    <!--                          <div class="rating">-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                          </div>-->
-                    <!--                        </div>-->
-                    <!--                      </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="col-xl-3">-->
-                    <!--                      <div class="exclusive-item exclusive-item-three text-center">-->
-                    <!--                        <div class="exclusive-item-thumb">-->
-                    <!--                          <a href="shop-details.html">-->
-                    <!--                            <img src="assets/img/product/td_product_img03.jpg" alt="">-->
-                    <!--                            <img class="overlay-product-thumb" src="assets/img/product/t_exclusive_product04.jpg" alt="">-->
-                    <!--                          </a>-->
-                    <!--                          <ul class="action">-->
-                    <!--                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
-                    <!--                          </ul>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="exclusive-item-content">-->
-                    <!--                          <h5><a href="shop-details.html">Men's Lathers Jacket</a></h5>-->
-                    <!--                          <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
-                    <!--                            <del class="old-price">$69.00</del>-->
-                    <!--                            <span class="new-price">$58.00</span>-->
-                    <!--                          </div>-->
-                    <!--                          <div class="rating">-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                          </div>-->
-                    <!--                        </div>-->
-                    <!--                      </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="col-xl-3">-->
-                    <!--                      <div class="exclusive-item exclusive-item-three text-center">-->
-                    <!--                        <div class="exclusive-item-thumb">-->
-                    <!--                          <a href="shop-details.html">-->
-                    <!--                            <img src="assets/img/product/td_product_img04.jpg" alt="">-->
-                    <!--                            <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">-->
-                    <!--                          </a>-->
-                    <!--                         <ul class="action">-->
-                    <!--                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
-                    <!--                          </ul>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="exclusive-item-content">-->
-                    <!--                          <h5><a href="shop-details.html">Women Brand T-shirt</a></h5>-->
-                    <!--                          <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
-                    <!--                            <del class="old-price">$49.00</del>-->
-                    <!--                            <span class="new-price">$21.00</span>-->
-                    <!--                          </div>-->
-                    <!--                          <div class="rating">-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                          </div>-->
-                    <!--                        </div>-->
-                    <!--                      </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="col-xl-3">-->
-                    <!--                      <div class="exclusive-item exclusive-item-three text-center">-->
-                    <!--                        <div class="exclusive-item-thumb">-->
-                    <!--                          <a href="shop-details.html">-->
-                    <!--                            <img src="assets/img/product/td_product_img02.jpg" alt="">-->
-                    <!--                            <img class="overlay-product-thumb" src="assets/img/product/td_product_img05.jpg" alt="">-->
-                    <!--                          </a>-->
-                    <!--                          <ul class="action">-->
-                    <!--                            <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="flaticon-supermarket"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="flaticon-witness"></i></a></li>-->
-                    <!--                          </ul>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="exclusive-item-content">-->
-                    <!--                          <h5><a href="shop-details.html">Luxury Fashion Bag</a></h5>-->
-                    <!--                          <div class="exclusive&#45;&#45;item&#45;&#45;price">-->
-                    <!--                            <del class="old-price">$69.00</del>-->
-                    <!--                            <span class="new-price">$29.00</span>-->
-                    <!--                          </div>-->
-                    <!--                          <div class="rating">-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                            <i class="fas fa-star"></i>-->
-                    <!--                          </div>-->
-                    <!--                        </div>-->
-                    <!--                      </div>-->
-                    <!--                    </div>-->
                   </div>
                 </div>
               </p-tabPanel>
-              <p-tabPanel header="Product Reviews">
-                <div class="product-reviews-wrap mt-50">
+              <p-tabPanel header="Product Reviews" class="p-0">
+                <div class="product-reviews-wrap mt-30 tab-pane fade show active">
                   <div class="deal-day-top">
                     <div class="deal-day-title">
                       <h4 class="title">Product Reviews</h4>

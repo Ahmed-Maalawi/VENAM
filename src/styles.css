@@ -1,4 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+::-webkit-scrollbar {
+  background: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0465d2;
+  transition: fade-in-out 1s 1s;
+  -webkit-transition: fade-in-out 1s 1s;
+  -moz-transition: fade-in-out 1s 1s;
+  -ms-transition: fade-in-out 1s 1s;
+  -o-transition: fade-in-out 1s 1s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2081f1;
+  transition: fade-in-out 1s 1s;
+  -webkit-transition: fade-in-out 1s 1s;
+  -moz-transition: fade-in-out 1s 1s;
+  -ms-transition: fade-in-out 1s 1s;
+  -o-transition: fade-in-out 1s 1s;
+}
+
+
+
+
+
 .sk-cube-grid {
     width: 40px;
     height: 40px;

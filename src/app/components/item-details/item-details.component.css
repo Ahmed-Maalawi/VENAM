@@ -1,0 +1,5 @@
+:host ::ng-deep .p-galleria-thumbnail-wrapper { width: 16vh } 
+
+:host ::ng-deep .p-tabview-panels {
+    padding: 0;
+}

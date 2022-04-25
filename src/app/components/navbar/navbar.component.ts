@@ -131,5 +131,5 @@ if ($('.mobile-menu').length) {
 
   showModalDialog() {
     this.displayModal = true;
-}
+  }
 }
