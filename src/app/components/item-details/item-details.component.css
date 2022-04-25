@@ -3,3 +3,8 @@
 :host ::ng-deep .p-tabview-panels {
     padding: 0;
 }
+
+:host ::ng-deep .p-galleria-thumbnail-wrapper {
+    height: 100%;
+    background-color: aquamarine;
+}

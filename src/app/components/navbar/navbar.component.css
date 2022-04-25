@@ -1,4 +1,7 @@
+header {
 
+    overflow-y: hidden !important;
+}
 
 .header-category .category-menu {
     visibility: visible;

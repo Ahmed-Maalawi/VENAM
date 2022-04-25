@@ -73,11 +73,6 @@
                 <li *ngFor="let size of currentProduct[4]">
                   <a style="cursor: pointer;">{{ size }}</a>
                 </li>
-                <!-- <li><a href="#">XXS</a></li>
-                <li><a href="#">XS</a></li>
-                <li><a href="#">s</a></li>
-                <li><a href="#">M</a></li>
-                <li><a href="#">L</a></li> -->
               </ul>
             </div>
             <div class="perched-info">
@@ -153,8 +148,8 @@
                         <ng-template carouselSlide *ngFor="let item of relatedProductsArr">
                           <div class="exclusive-item exclusive-item-three text-center">
                             <div class="exclusive-item-thumb">
-                              <a [routerLink]="['../', item.id]">
-                                <img [src]="imgPrefix + item.product_thambnail" [alt]="item.product_name_en">
+                              <a [routerLink]="['../', item?.id]">
+                                <img [src]="imgPrefix + item?.product_thambnail" [alt]="item?.product_name_en">
                               </a>
                               <ul class="action">
                                 <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
@@ -163,12 +158,12 @@
                               </ul>
                             </div>
                             <div class="exclusive-item-content">
-                              <h5><a class="text-truncate" (click)="refresh()" [routerLink]="['../', item.id]">{{ item.product_name_en}}</a></h5>
+                              <h5><a class="text-truncate" (click)="refresh()" [routerLink]="['../', item?.id]">{{ item?.product_name_en}}</a></h5>
                               <div class="exclusive--item--price">
-                                <del class="old-price">EGP {{ item.selling_price }}</del>
-                                <span class="new-price">EGP {{item.discount_price}}</span>
+                                <del class="old-price">EGP {{ item?.selling_price }}</del>
+                                <span class="new-price">EGP {{item?.discount_price}}</span>
                               </div>
-                              <p-rating [ngModel]="item.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
+                              <p-rating [ngModel]="item?.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
                             </div>
                           </div>
                         </ng-template>
