@@ -372,7 +372,7 @@ label {
 .blue-bg,
 .view-more a:hover i,
 .scroll-top {
-	background: #0465d2;
+	background: var(--DTPrimaryColor);
 }
 
 
@@ -3404,7 +3404,7 @@ label {
 .wishlist-area tbody .product-add-to-cart .btn,
 .order-complete-content .btn,
 .my-account-content .form-grp-btn .btn {
-	color: var(--DTPrimaryColor);
+	color: #fff;
 }
 .wishlist-area tbody .product-add-to-cart .btn:hover,
 .order-complete-content .btn:hover,
