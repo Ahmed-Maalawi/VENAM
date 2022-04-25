@@ -11,3 +11,8 @@ display: none;
 
 }
 
+.header-top-left ul select
+{
+    border: none;
+    cursor: pointer;
+}
