@@ -4,7 +4,45 @@
     padding: 0;
 }
 
-:host ::ng-deep .p-galleria-thumbnail-wrapper {
+:host ::ng-deep .p-galleria	{ 
+    background-color: hsla(0, 0%, 0%, 0.152);
+    color:blue;
+}
+:host ::ng-deep .p-galleria-header {
+    background-color: black;
+    color:blue;
+}	
+:host ::ng-deep .p-galleria-footer	{
+    background-color: black;
+    color:blue;
+}
+:host ::ng-deep .p-galleria-item-wrapper {
+    background-color: black;
+    color:blue;
+}	
+:host ::ng-deep .p-galleria-item-container {
+    background-color: black;
+    color:blue;
+}	
+:host ::ng-deep .p-galleria-indicators {
     height: 100%;
-    background-color: aquamarine;
+    display: inline;
+    background-color: tomato !important;
+    color:tomato !important;
+}
+:host ::ng-deep .p-galleria-thumbnail-wrapper {
+    /* width: auto; */
+    background-color: transparent;
+    color:red;
+}	
+:host ::ng-deep .p-galleria-thumbnail-container {
+    /* background-color: gray; */
+    background-color: hsla(0, 0%, 0%, 0.8);
+    
+}  /* background for sub images */
+:host ::ng-deep .p-galleria-caption {background-color: black;
+color:blue;}
+
+:host ::ng-deep .p-galleria-thumbnails-left .p-galleria-thumbnail-items {
+    height:100%
 }

@@ -64,7 +64,7 @@ export class ItemDetailsComponent implements OnInit {
 
 
     this.relatedProductsArr = this.getRelatedProducs();
-    console.log(this.relatedProducts);
+    console.table(this.relatedProducts);
   }
 
 
