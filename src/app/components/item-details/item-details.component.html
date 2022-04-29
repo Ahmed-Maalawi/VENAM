@@ -86,7 +86,7 @@
               <a href="#" class="btn add-card-btn">ADD TO CART</a>
             </div>
             <div class="shop-details-bottom">
-              <h5><a (click)="addToFav(currentProduct[0])"><i class="far fa-heart"></i> Add To Wishlist</a></h5>
+              <h5><a (click)="addToWishList(currentProduct[0].id)"><i class="far fa-heart"></i> Add To Wishlist</a></h5>
               <ul>
                 <li>
                   <span>Tag : </span>
@@ -346,7 +346,7 @@
     </div>
   </section>
   <!-- shop-details-area-end -->
-
+  <p-toast key="add-to-wishlist"></p-toast>
 
 </main>
 <!-- main-area-end -->

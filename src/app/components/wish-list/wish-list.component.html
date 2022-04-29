@@ -42,16 +42,16 @@
               <tbody>
               <tr *ngFor="let item of wishListProduct">
                 <td class="product-thumbnail">
-                  <a href="#" class="wishlist-remove">
-                    <i class="flaticon-cancel-1"></i>
+                  <a (click)="delete(item.id)" class="wishlist-remove" style="cursor: pointer">
+                    <i class="pi pi-trash xl" style="font-size: 1.3rem"></i>
                   </a>
-                  <a routerLink="['/product-details', item['product'].id]">
+                  <a [routerLink]="['/product-details', item['product'].id]">
                     <img [src]="imgPrefix + item['product'].product_thambnail" [alt]="item['product'].product_name_en" class="img-fluid w-50">
                   </a>
                 </td>
                 <td class="product-name">
                   <h4>
-                    <a routerLink="['/product-details', item['product'].id]">{{ item['product'].product_name_en }}</a>
+                    <a [routerLink]="['/product-details', item['product'].id]">{{ item['product'].product_name_en }}</a>
                   </h4>
                   <!-- <p>Cramond Leopard & Pythong Anorak</p>
                   <span>65% poly, 35% rayon</span> -->
@@ -123,6 +123,6 @@
   </section>
   <!-- wishlist-area-end -->
 
-
+  <p-toast key="deleteMessage" life="4000ms"></p-toast>
 </main>
 <!-- main-area-end -->
