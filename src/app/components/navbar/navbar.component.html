@@ -182,8 +182,10 @@
                 <ul>
                   <li><a href="#"><i class="flaticon-two-arrows"></i></a></li>
                   <li><a routerLink="/wishList"><i class="flaticon-heart"></i></a></li>
-                  <li class="header-shop-cart"><a routerLink="/cart"><i class="flaticon-shopping-bag"></i><span
-                        class="cart-count">2</span></a>
+                  <li class="header-shop-cart">
+                    <a routerLink="/cart"><i class="flaticon-shopping-bag"></i>
+                      <span class="cart-count">2</span>
+                    </a>
                     <span class="cart-total-price">$ 128.00</span>
                     <ul class="minicart">
                       <li class="d-flex align-items-start">
@@ -481,7 +483,7 @@
         <div class="col-xl-9 col-lg-8">
           <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
             <div class="header-search-wrap">
-              <form action="#">
+              <form action="#" style="direction: ltr !important;">
                 <input type="text" placeholder="{{ 'NAVBAR.FOOTERBAR.SEARCH.PLACEHOLDER' | translate }}">
                 <select class="custom-select">
                   <option selected="">{{ 'NAVBAR.FOOTERBAR.SEARCH.ALL-CATEGORY' | translate }}</option>

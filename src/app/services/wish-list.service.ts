@@ -1,32 +1,50 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserService } from './user.service';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WishListService {
 
-  wishListProduct = [];
+  constructor(private _AuthService:AuthService, private _HttpClient:HttpClient) {}
 
-  constructor(private _UserService:UserService) {
+  getwishList(): Observable<any>
+  {
 
-    this._UserService.getwishList().subscribe( response => {
+    let token = this._AuthService.getToken();
 
-      this.wishListProduct = response['data'];
-      
-      console.log(this.wishListProduct);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
     });
 
+    return this._HttpClient.get('https://medicazone.online/api/zone/get-wishlist-product', {headers: headers});
   }
 
-  delete(item:any):void
+  addProduct(id: number): Observable<any>
   {
-    // this.wishListProduct.pop(item);
+    let token = this._AuthService.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    });
+
+    return this._HttpClient.post(`https://medicazone.online/api/zone/add-to-wishlist/${id}`, {headers: headers});
   }
 
-  add(item:any):void
+  deleteProduct(id: number): Observable <any>
   {
-    // this.wishListProduct.push(item);
-    console.log(this.wishListProduct);
+    let token = this._AuthService.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    });
+      
+    return this._HttpClient.get(`https://medicazone.online/api/zone/wishlist-remove/${id}`, {headers: headers});
   }
 }
+

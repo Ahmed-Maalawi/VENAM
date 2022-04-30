@@ -18,19 +18,6 @@ export class UserService {
   }
 
 
-  getwishList(): Observable<any>
-  {
-
-    let token = this._AuthService.getToken();
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
-    });
-
-    return this._HttpClient.get('http://medicazone.online/api/zone/get-wishlist-product', {headers: headers});
-  }
-
   getUserData(): Observable <any>
   {
     let token = this._AuthService.getToken();

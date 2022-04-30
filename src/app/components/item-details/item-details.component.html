@@ -38,14 +38,14 @@
     <div class="container">
       <div class="row mb-95">
         <div class="col-xl-7 col-lg-6">
-          <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="4"
+          <p-galleria class="shadow-3" [value]="currentProduct?.images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="4"
               thumbnailsPosition="left">
               <ng-template pTemplate="item" let-item>
-                  <img [src]="imgPrefix + item" class="img-fluid" style="width: 100%; display: block;" />
+                  <img [src]="imgPrefix + item?.photo_name" class="img-fluid" style="width: 100%; display: block;"/>
               </ng-template>
               <ng-template pTemplate="thumbnail" let-item>
-                  <div class="grid grid-nogutter justify-content-center">
-                      <img [src]="imgPrefix + item" class="img-fluid"/>
+                  <div class="grid grid-nogutter m-auto align-items-center d-flex">
+                      <img [src]="imgPrefix + item?.photo_name" class="img-fluid m-auto"/>
                   </div>
               </ng-template>
           </p-galleria>
@@ -53,31 +53,26 @@
         <div class="col-xl-5 col-lg-6">
           <div class="shop-details-content">
             <span class="stock-info">In Stock</span>
-            <h2>{{ currentProduct[0].product_name_en }}</h2>
+            <h2>{{ currentProduct?.product_name_en }}</h2>
             <div class="shop-details-review">
-              <p-rating [ngModel]="currentProduct[0]?.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
+              <p-rating [ngModel]="currentProduct?.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
               <span>- Customer Reviews</span>
             </div>
             <div class="shop-details-price">
-              <h2 *ngIf="currentProduct[0]?.special_offer">EGP {{ currentProduct[0]?.discount_price}} <del>EGP {{
-                  currentProduct[0]?.selling_price}}</del></h2>
-              <h2 *ngIf="!currentProduct[0]?.special_offer">EGP {{ currentProduct[0]?.selling_price}}</h2>
+              <h2 *ngIf="currentProduct?.special_offer">EGP {{ currentProduct?.discount_price}} <del>EGP {{
+                  currentProduct?.selling_price}}</del></h2>
+              <h2 *ngIf="!currentProduct?.special_offer">EGP {{ currentProduct?.selling_price}}</h2>
             </div>
             <!--            <p>Cramond Leopard & Pythong Print Anorak Jacket In Beige but also the leap into electronic typesetting, remaining</p>-->
-            <p>{{ currentProduct[0]?.short_descp_en }}</p>
+            <p>{{ currentProduct?.short_descp_en }}</p>
             <div class="product-details-size mb-40">
               <span>Size : </span>
               <a href="#">Guide</a>
               <a href="#">Can't Find Your Size?</a>
               <ul>
-                <li *ngFor="let size of currentProduct[4]">
+                <li *ngFor="let size of currentProduct?.product_size_en">
                   <a style="cursor: pointer;">{{ size }}</a>
                 </li>
-                <!-- <li><a href="#">XXS</a></li>
-                <li><a href="#">XS</a></li>
-                <li><a href="#">s</a></li>
-                <li><a href="#">M</a></li>
-                <li><a href="#">L</a></li> -->
               </ul>
             </div>
             <div class="perched-info">
@@ -91,12 +86,12 @@
               <a href="#" class="btn add-card-btn">ADD TO CART</a>
             </div>
             <div class="shop-details-bottom">
-              <h5><a (click)="addToFav(currentProduct[0])"><i class="far fa-heart"></i> Add To Wishlist</a></h5>
+              <h5><a (click)="addToWishList(currentProduct?.id)"><i class="far fa-heart"></i> Add To Wishlist</a></h5>
               <ul>
                 <li>
                   <span>Tag : </span>
                   <a href="#">
-                    <p-chip label="{{ currentProduct[0]?.product_slug_en }}"></p-chip>
+                    <p-chip label="{{ currentProduct?.product_slug_en }}"></p-chip>
                   </a>
                   <!-- <a href="#">clothing</a> -->
                 </li>
@@ -124,12 +119,12 @@
                       <div class="row">
                         <div class="col-xl-3 col-md-4">
                           <div class="product-desc-img">
-                            <img [src]="imgPrefix + currentProduct[0]?.product_thambnail" alt="">
+                            <img [src]="imgPrefix + currentProduct?.product_thambnail" alt="">
                           </div>
                         </div>
                         <div class="col-xl-9 col-md-8">
-                          <h5 class="small-title">{{ currentProduct[0]?.product_name_en }}</h5>
-                          <p>{{ currentProduct[0]?.long_descp_en }}</p>
+                          <h5 class="small-title">{{ currentProduct?.product_name_en }}</h5>
+                          <p>{{ currentProduct?.long_descp_en }}</p>
                         </div>
                       </div>
                     </div>
@@ -149,12 +144,12 @@
                   <div class="row related-product-active">
                     <div class="col-12">
                   
-                      <owl-carousel-o [options]="relatedProducts">
+                      <!-- <owl-carousel-o [options]="relatedProducts">
                         <ng-template carouselSlide *ngFor="let item of relatedProductsArr">
-                          <div class="exclusive-item exclusive-item-three text-center">
+                          <div class=" text-center">
                             <div class="exclusive-item-thumb">
-                              <a [routerLink]="['../', item.id]">
-                                <img [src]="imgPrefix + item.product_thambnail" [alt]="item.product_name_en">
+                              <a [routerLink]="['../', item?.id]">
+                                <img [src]="imgPrefix + item?.product_thambnail" [alt]="item?.product_name_en">
                               </a>
                               <ul class="action">
                                 <li><a href="#"><i class="flaticon-shuffle-1"></i></a></li>
@@ -163,16 +158,20 @@
                               </ul>
                             </div>
                             <div class="exclusive-item-content">
-                              <h5><a class="text-truncate" (click)="refresh()" [routerLink]="['../', item.id]">{{ item.product_name_en}}</a></h5>
+                              <h5><a class="text-truncate" (click)="refresh()" [routerLink]="['../', item?.id]">{{ item?.product_name_en}}</a></h5>
                               <div class="exclusive--item--price">
-                                <del class="old-price">EGP {{ item.selling_price }}</del>
-                                <span class="new-price">EGP {{item.discount_price}}</span>
+                                <del class="old-price">EGP {{ item?.selling_price }}</del>
+                                <span class="new-price">EGP {{item?.discount_price}}</span>
                               </div>
-                              <p-rating [ngModel]="item.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
+                              <p-rating [ngModel]="item?.rate" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
                             </div>
                           </div>
                         </ng-template>
-                      </owl-carousel-o>
+                      </owl-carousel-o> -->
+
+
+
+
                     </div>
                   </div>
                 </div>
@@ -347,7 +346,7 @@
     </div>
   </section>
   <!-- shop-details-area-end -->
-
+  <p-toast key="add-to-wishlist"></p-toast>
 
 </main>
 <!-- main-area-end -->
