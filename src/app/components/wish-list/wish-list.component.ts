@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { WishListService } from 'src/app/services/wish-list.service';
 import {MessageService} from 'primeng/api';
+import { Product } from '../../model/product';
 
 
 @Component({
@@ -58,6 +59,11 @@ export class WishListComponent implements OnInit {
     this._Router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this._Router.navigate([currentUrl]);
     });
+  }
+
+  addToCart(ProductID: number): void 
+  {
+
   }
 
 }

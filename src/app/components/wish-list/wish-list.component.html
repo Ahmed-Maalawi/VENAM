@@ -56,7 +56,7 @@
                   <!-- <p>Cramond Leopard & Pythong Anorak</p>
                   <span>65% poly, 35% rayon</span> -->
                 </td>
-                <td class="product-price">EGP {{ item['product'].selling_price }}</td>
+                <td class="product-price">EGP {{ item['product']?.selling_price }}</td>
                 <td class="product-quantity">
                   <div class="cart-plus">
                     <form action="#">
@@ -68,7 +68,7 @@
                 </td>
                 <td class="product-subtotal"><span>$ 68.00</span></td>
                 <td class="product-stock-status"><span>In Stock</span></td>
-                <td class="product-add-to-cart"><span>Added on March 10. 2020</span><a href="cart.html" class="btn">Add to Cart</a></td>
+                <td class="product-add-to-cart"><span>Added on {{ item?.created_at | date:'shortDate' }}</span><a (click)="addToCart(item['product'].id)" class="btn"> Add to Cart</a></td>
               </tr>
               <!-- <tr>
                 <td class="product-thumbnail"><a href="#" class="wishlist-remove"><i class="flaticon-cancel-1"></i></a><a href="shop-details.html"><img src="img/product/wishlist_thumb02.jpg" alt=""></a>

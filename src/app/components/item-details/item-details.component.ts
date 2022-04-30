@@ -54,63 +54,64 @@ export class ItemDetailsComponent implements OnInit {
   ngOnInit() {
 
     window.scrollTo(0, 400);
+    this.getProduct();
 
+    // this.relatedProductsArr = this.getRelatedProducs();
+    // console.table(this.relatedProducts);
+  }
+
+  getProduct(): void
+  {
     let id = this._ActivatedRoute.snapshot.params['id'];
 
     this._ProductDetailsService.getProductDetails(id).subscribe(res => {
-      this.currentProduct = res.data;
-      this.getImages();
+      this.currentProduct = res.data[0];
+      console.log(this.currentProduct)
     });
-
-
-    this.relatedProductsArr = this.getRelatedProducs();
-    console.table(this.relatedProducts);
   }
 
+  // getRelatedProducs(): void
+  // {
+  //   console.log(this.currentProduct[6]);
+  //   return this.currentProduct[6];
+  // }
 
-
-  getRelatedProducs(): void
-  {
-    console.log(this.currentProduct[6]);
-    return this.currentProduct[6];
-  }
-
-  getImages() {
+  // getImages() {
     
-    this.currentProduct[1].forEach( (obj: any) => {
-      this.images.push(obj.photo_name);
+  //   this.currentProduct[1].forEach( (obj: any) => {
+  //     this.images.push(obj.photo_name);
 
-    });
-    // console.log(this.images)
-  }
+  //   });
+  //   // console.log(this.images)
+  // }
 
-  relatedProducts: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: true,
-    dots: false,
-    mergeFit: true,
-    margin: 10,
-    autoplay: true,
-    stagePadding: 0,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 2
-      },
-      740: {
-        items: 4
-      },
-      940: {
-        items: 4
-      }
-    },
-    nav: false
-  }
+  // relatedProducts: OwlOptions = {
+  //   loop: true,
+  //   mouseDrag: true,
+  //   touchDrag: true,
+  //   pullDrag: true,
+  //   dots: false,
+  //   mergeFit: true,
+  //   margin: 10,
+  //   autoplay: true,
+  //   stagePadding: 0,
+  //   navText: ['', ''],
+  //   responsive: {
+  //     0: {
+  //       items: 1
+  //     },
+  //     400: {
+  //       items: 2
+  //     },
+  //     740: {
+  //       items: 4
+  //     },
+  //     940: {
+  //       items: 4
+  //     }
+  //   },
+  //   nav: false
+  // }
 
   change(id:number) {
 
