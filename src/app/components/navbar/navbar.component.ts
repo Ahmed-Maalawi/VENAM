@@ -102,10 +102,10 @@ export class NavbarComponent implements OnInit {
       
       })
 
-      this._HomeService.subCategory().subscribe((response)=>
-      {
-        this.subCategory=response.data
-      })
+      // this._HomeService.subCategory().subscribe((response)=>
+      // {
+      //   this.subCategory=response.data
+      // })
     
   }
 
