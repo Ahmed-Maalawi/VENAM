@@ -33,7 +33,15 @@ export class HomeService {
     return this._HttpClient.get('https://medicazone.online/api/zone/featured');
   }
 
-  getCategory(id:number): Observable <any>
+  category(): Observable<any>
+  {
+    return this._HttpClient.get('https://medicazone.online/api/zone/getCategories')
+  }
+  subCategory(id:number): Observable <any>
+  {
+    return this._HttpClient.get(`https://medicazone.online/api/zone/subcategory/product/${id}`)
+  }
+  getSubSubCategory(id:number): Observable <any>
   {
 
     return this._HttpClient.get(`https://medicazone.online/api/zone/subsubcategory/product/${id}/sneakers-man`);

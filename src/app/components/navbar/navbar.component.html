@@ -22,8 +22,8 @@
                     </div>
                   </div> -->
                   <select id="" name="dropdown" class="ml-1">
-                    <option value ="usd">USD</option>
-                    <option value ="egp">EGP</option>
+                    <option value="usd">USD</option>
+                    <option value="egp">EGP</option>
                   </select>
                 </div>
               </li>
@@ -51,7 +51,7 @@
                     <option value="en" selected>English</option>
                   </select>
                   <!-- <div class="dropdown"> -->
-                    <!-- <button class="dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
+                  <!-- <button class="dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">
                       Help
                     </button>
@@ -67,9 +67,10 @@
                 <div class="heder-top-guide">
                   <div class="dropdown">
                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" translate="NAVBAR.TOPBAR.SELLER-AUTH.VALUE"></button>
+                      aria-haspopup="true" aria-expanded="false" translate="NAVBAR.TOPBAR.SELLER-AUTH.VALUE"></button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                      <a class="dropdown-item" href="https://medicazone.online/admin/login" translate="NAVBAR.TOPBAR.SELLER-AUTH.LINK"></a>
+                      <a class="dropdown-item" href="https://medicazone.online/admin/login"
+                        translate="NAVBAR.TOPBAR.SELLER-AUTH.LINK"></a>
                     </div>
                   </div>
                 </div>
@@ -87,7 +88,11 @@
           <div class="header-top-right">
             <ul>
               <li *ngIf="checkIsLogin()">
-                <a [routerLink]="['/profile']"><p-avatar [label]="currentUser?.name.charAt(0)" styleClass="mr-2" [style]="{'background-color': '#9c27b0', 'color': '#ffffff','cursor': 'pointer'}" shape="circle"></p-avatar></a>
+                <a [routerLink]="['/profile']">
+                  <p-avatar [label]="currentUser?.name.charAt(0)" styleClass="mr-2"
+                    [style]="{'background-color': '#9c27b0', 'color': '#ffffff','cursor': 'pointer'}" shape="circle">
+                  </p-avatar>
+                </a>
               </li>
               <li>
                 <div *ngIf="!checkIsLogin()">
@@ -97,7 +102,8 @@
                   <span translate="NAVBAR.TOPBAR.AUTH.OR"></span>
                   <a routerLink="/login" translate="NAVBAR.TOPBAR.AUTH.LOGIN"></a>
                 </div>
-                <a style="cursor: pointer;" *ngIf="checkIsLogin()" (click)="logoutClick()" translate="NAVBAR.TOPBAR.AUTH.LOGOUT"></a>
+                <a style="cursor: pointer;" *ngIf="checkIsLogin()" (click)="logoutClick()"
+                  translate="NAVBAR.TOPBAR.AUTH.LOGOUT"></a>
               </li>
             </ul>
           </div>
@@ -135,14 +141,14 @@
                   </li> -->
                   <li class="dropdown"><a routerLink="/blog" translate="NAVBAR.MAINBAR.BLOG"></a>
                     <!-- <ul class="submenu"> -->
-                      <!-- <li><a routerLink="blog.html">Standard Blog</a></li>
+                    <!-- <li><a routerLink="blog.html">Standard Blog</a></li>
                       <li><a routerLink="blog-classic.html">Classic Blog</a></li>
                       <li><a routerLink="blog-details.html">Blog Details</a></li> -->
                     <!-- </ul> -->
                   </li>
                   <li class="dropdown"><a routerLink="shop" translate="NAVBAR.MAINBAR.SHOP"></a>
                     <!-- <ul class="submenu"> -->
-                      <!-- <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
+                    <!-- <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
                       <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
                       <li><a href="shop-details.html">Shop Details</a></li>
                       <li><a href="wishlist.html">Wishlist page</a></li>
@@ -153,15 +159,22 @@
                   </li>
                   <!-- <li><a href="special.html">SPECIAL</a></li> -->
                   <li><a routerLink="/contact" translate="NAVBAR.MAINBAR.CONTACTS"></a></li>
-                  <li><a type="button" (click)="showModalDialog()" icon="pi pi-external-link" label="Show" translate="NAVBAR.MAINBAR.TRACKORDER"></a></li>
+                  <li><a type="button" (click)="showModalDialog()" icon="pi pi-external-link" label="Show"
+                      translate="NAVBAR.MAINBAR.TRACKORDER"></a></li>
                 </ul>
-                <p-dialog header="Header" position="top-right" [(visible)]="displayModal" [modal]="true" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}" 
-                [draggable]="false" [resizable]="true">
-                  <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p-dialog header="Header" position="top-right" [(visible)]="displayModal" [modal]="true"
+                  [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}" [draggable]="false"
+                  [resizable]="true">
+                  <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                    velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                    est laborum.</p>
                   <ng-template pTemplate="footer">
-                    <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+                    <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text">
+                    </p-button>
                   </ng-template>
                 </p-dialog>
               </div>
@@ -277,15 +290,17 @@
       <div class="row align-items-center">
         <div class="col-xl-3 col-lg-4 d-none d-lg-block">
           <div class="header-category d-none d-lg-block">
-            <a class="cat-toggle" >
+            <a class="cat-toggle">
               <i class="flaticon-menu"></i>
               {{'NAVBAR.FOOTERBAR.MENU' | translate}}
             </a>
             <ul class="category-menu">
-              <li class="has-dropdown">
+
+              <li class="has-dropdown" *ngFor="let cat of category">
                 <a href="#">
                   <div class="cat-menu-img"><img src="assets/img/product/category_menu_img01.png" alt="">
-                  </div> Western woman
+                  </div>
+                  {{cat.category_name_en}}
                 </a>
                 <ul class="mega-menu">
                   <li>
@@ -339,11 +354,16 @@
                     </ul>
                   </li>
                 </ul>
+
               </li>
-              <li class="has-dropdown"><a href="#">
+          
+
+              <!-- <li class="has-dropdown">
+                <a href="#">
                   <div class="cat-menu-img"><img src="assets/img/product/category_menu_img02.png" alt=""></div> TV,
                   Appliances
                 </a>
+
                 <ul class="mega-menu">
                   <li>
                     <ul>
@@ -395,8 +415,9 @@
                     </ul>
                   </li>
                 </ul>
-              </li>
-              <li><a href="shop-left-sidebar.html">
+              </li> -->
+
+              <!-- <li><a href="shop-left-sidebar.html">
                   <div class="cat-menu-img"><img src="assets/img/product/category_menu_img03.png" alt=""></div> Baby
                   Product
                 </a></li>
@@ -435,8 +456,25 @@
                       Industrial Product
                     </a></li>
                 </ul>
+              </li> -->
+              <li>
+                <ul class="more_slide_open">
+                  <li><a href="#">
+                      <div class="cat-menu-img"><img src="assets/img/product/category_menu_img01.png" alt=""></div>
+                      Western woman
+                    </a></li>
+                  <li><a href="#">
+                      <div class="cat-menu-img"><img src="assets/img/product/category_menu_img02.png" alt=""></div>
+                      Health Product
+                    </a></li>
+                  <li><a href="#">
+                      <div class="cat-menu-img"><img src="assets/img/product/category_menu_img03.png" alt=""></div>
+                      Industrial Product
+                    </a></li>
+                </ul>
               </li>
               <li class="more_categories">More Categories<i class="fas fa-angle-down"></i></li>
+
             </ul>
           </div>
         </div>
@@ -469,7 +507,7 @@
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </div>
   </div>
   <p-toast position="bottom-right" key="logoutMessage"></p-toast>

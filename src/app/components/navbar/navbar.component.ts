@@ -5,6 +5,8 @@ import { country } from 'src/app/model/country';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from "../../services/auth.service";
 import { TranslateService } from '@ngx-translate/core';
+import { HomeService } from 'src/app/services/home.service';
+
 declare var $: any;
 @Component({
   selector: 'app-navbar',
@@ -22,7 +24,12 @@ export class NavbarComponent implements OnInit {
   selectedCountry: country = { name: 'ar', code: 'EG', img: 'eg.svg', value: 'ar' };
 
   cities: country[];
-  constructor(private _AuthService: AuthService, private _MessageService: MessageService, private _TranslateService: TranslateService) {
+
+  filteredCat:any[]=[];
+  category: any[] = [];
+  subCategory: any[] = [];
+  subSubCategory: any[] = [];
+  constructor(private _AuthService: AuthService, private _MessageService: MessageService, private _TranslateService: TranslateService, private _HomeService: HomeService) {
 
     this.cities = [
       { name: 'ar', code: 'EG', img: 'eg.svg', value: 'ar' },
@@ -46,7 +53,6 @@ export class NavbarComponent implements OnInit {
     =============================================*/
     $('.cat-toggle').on('click', function () {
       $('.category-menu').slideToggle(500);
-      console.log("here")
       return false;
     });
 
@@ -58,39 +64,49 @@ export class NavbarComponent implements OnInit {
       $('.more_slide_open').slideToggle();
     });
 
-/*=============================================
-	=    		Mobile Menu			      =
-=============================================*/
-//SubMenu Dropdown Toggle
-if ($('.menu-area li.dropdown ul').length) {
-	$('.menu-area .navigation li.dropdown').append('<div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>');
+    /*=============================================
+      =    		Mobile Menu			      =
+    =============================================*/
+    //SubMenu Dropdown Toggle
+    if ($('.menu-area li.dropdown ul').length) {
+      $('.menu-area .navigation li.dropdown').append('<div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>');
 
-}
+    }
 
-//Mobile Nav Hide Show
-if ($('.mobile-menu').length) {
+    //Mobile Nav Hide Show
+    if ($('.mobile-menu').length) {
 
-	var mobileMenuContent = $('.menu-area .main-menu').html();
-	$('.mobile-menu .menu-box .menu-outer').append(mobileMenuContent);
+      var mobileMenuContent = $('.menu-area .main-menu').html();
+      $('.mobile-menu .menu-box .menu-outer').append(mobileMenuContent);
 
-	//Dropdown Button
-	$('.mobile-menu li.dropdown .dropdown-btn').on('click',  () => {
-		$(this).toggleClass('open');
-		$(this).prev('ul').slideToggle(500);
-	});
-	//Menu Toggle Btn
-	$('.mobile-nav-toggler').on('click', function () {
-		$('body').addClass('mobile-menu-visible');
-	});
+      //Dropdown Button
+      $('.mobile-menu li.dropdown .dropdown-btn').on('click', () => {
+        $(this).toggleClass('open');
+        $(this).prev('ul').slideToggle(500);
+      });
+      //Menu Toggle Btn
+      $('.mobile-nav-toggler').on('click', function () {
+        $('body').addClass('mobile-menu-visible');
+      });
 
-	//Menu Toggle Btn
-	$('.mobile-menu .menu-backdrop,.mobile-menu .close-btn').on('click', function () {
-		$('body').removeClass('mobile-menu-visible');
+      //Menu Toggle Btn
+      $('.mobile-menu .menu-backdrop,.mobile-menu .close-btn').on('click', function () {
+        $('body').removeClass('mobile-menu-visible');
+
+      });
+    }
+
+  
+      this._HomeService.category().subscribe((response) => {
+        this.category = response.data
+      
+      })
+
+      this._HomeService.subCategory().subscribe((response)=>
+      {
+        this.subCategory=response.data
+      })
     
-	});
-}
-
-
   }
 
   logoutClick(): void {
@@ -132,4 +148,5 @@ if ($('.mobile-menu').length) {
   showModalDialog() {
     this.displayModal = true;
   }
+  
 }
