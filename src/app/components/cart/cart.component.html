@@ -38,13 +38,21 @@
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td class="product-thumbnail"><a href="#" class="wishlist-remove"><i class="flaticon-cancel-1"></i></a><a href="shop-details.html"><img src="assets/img/product/wishlist_thumb01.jpg" alt=""></a>
+              <tr *ngFor="let product of cartItems">
+                <td class="product-thumbnail">
+                  <a class="wishlist-remove d-inline-block" (click)="delete(product?.id)">
+                    <i class="pi pi-trash" style="font-size: 1.4rem"></i>
+                  </a>
+                  <a [routerLink]="['/product-details',product['product']?.id]">
+                    <img style="width: 103px; height: 129px" class="img-fluid d-inline-block  " [src]="imgPrefix + product['product']?.product_thambnail" [alt]="product['product']?.product_name_en">
+                  </a>
                 </td>
                 <td class="product-name">
-                  <h4><a href="shop-details.html">Woman Lathers Jacket</a></h4>
-                  <p>Cramond Leopard & Pythong Anorak</p>
-                  <span>65% poly, 35% rayon</span>
+                  <h4>
+                    <a [routerLink]="['/product-details',product['product']?.id]">{{ product['product']?.product_name_en }}</a>
+                  </h4>
+                  <!-- <p>{{ product['product']?.product_name_en }}</p> -->
+                  <!-- <span>65% poly, 35% rayon</span> -->
                 </td>
                 <td class="product-price">$ 29.00</td>
                 <td class="product-quantity">

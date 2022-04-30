@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  cartItems: any;
+  cartError: any;
+  imgPrefix: string = "http://medicazone.online/";
+  
+  constructor(private _CartService:CartService) { }
 
   ngOnInit(): void {
+    this.getMyCart();
+  }
+
+  getMyCart(): any 
+  {
+    this._CartService.getCartItems()
+    .subscribe(
+      response => {
+        this.cartItems = response.data;
+      },
+      error => {
+        this.cartError = error.error;
+      }
+    )
+  }
+
+  delete(id: number): void
+  {
+
+  }
+
+  add(id: number): void
+  {
+
   }
 
 }
