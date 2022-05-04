@@ -1,6 +1,7 @@
 @import "primeflex/primeflex.css";
 ::-webkit-scrollbar {
   background: transparent;
+  width: 7px;
 }
 
 /* Track */

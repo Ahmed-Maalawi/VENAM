@@ -9,6 +9,7 @@ import { AuthService } from './auth.service';
 })
 export class CartService {
 
+  cartLength: number = 1;
   constructor(private _HttpClient:HttpClient, private _AuthService:AuthService) { }
 
   getCartItems(): Observable <any>

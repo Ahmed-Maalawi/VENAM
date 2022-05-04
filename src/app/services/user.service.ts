@@ -17,8 +17,7 @@ export class UserService {
     
   }
 
-
-  getUserData(): Observable <any>
+  getHeader(): any 
   {
     let token = this._AuthService.getToken();
 
@@ -27,9 +26,24 @@ export class UserService {
       'Authorization': `Bearer ${token}`,
     });
 
-
-    return this._HttpClient.get('https://medicazone.online/api/auth/user-profile', {headers: headers});
+    return headers;
   }
+
+  getUserData(): Observable <any>
+  {
+    return this._HttpClient.get('https://medicazone.online/api/auth/user-profile', {headers: this.getHeader()})
+  }
+
+  shangePassword(): Observable <any>
+  {
+    return this._HttpClient.post('https://medicazone.online/api/auth/updatePassword', {headers: this.getHeader()})
+  }
+
+  updateInfo(): Observable <any>
+  {
+    return this._HttpClient.post('http://medicazone.online/api/auth/user/store', {headers: this.getHeader()})
+  }
+
 
   
 }

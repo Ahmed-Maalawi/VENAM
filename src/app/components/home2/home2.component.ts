@@ -16,7 +16,7 @@ export class Home2Component implements OnInit {
   newArrivals: any[] = [];
   bestSeller: any[] = [];
   hotDeals: any[] = [];
-  slider:any[]=[]
+  slider:any[]=[];
 
   constructor(private _HomeService: HomeService, private _DialogService:DialogService) {
     this._HomeService.getProduct().subscribe((res) => {
@@ -147,6 +147,5 @@ export class Home2Component implements OnInit {
     },
     nav: false
   }
-
 
 }

@@ -39,6 +39,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import {MenuModule} from 'primeng/menu';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {AvatarModule} from 'primeng/avatar';
+import {MegaMenuModule} from 'primeng/megamenu';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -89,6 +90,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     DialogModule,
     TabMenuModule,
     AvatarModule,
+    MegaMenuModule,
     
     TranslateModule.forRoot({
       loader: {

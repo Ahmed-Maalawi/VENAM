@@ -184,7 +184,8 @@
                   <li><a routerLink="/wishList"><i class="flaticon-heart"></i></a></li>
                   <li class="header-shop-cart">
                     <a routerLink="/cart"><i class="flaticon-shopping-bag"></i>
-                      <span class="cart-count">2</span>
+                      <span class="cart-count" *ngIf="!checkIsLogin">0</span>
+                      <span class="cart-count" *ngIf="checkIsLogin">{{ cartLength }}</span>
                     </a>
                     <span class="cart-total-price">$ 128.00</span>
                     <ul class="minicart">
@@ -300,30 +301,32 @@
 
               <li class="has-dropdown" *ngFor="let cat of category">
                 <a href="#">
-                  <div class="cat-menu-img"><img src="assets/img/product/category_menu_img01.png" alt="">
-                  </div>
+                  <!-- <div class="cat-menu-img">
+                    <img src="assets/img/product/category_menu_img01.png" alt="">
+                  </div> -->
                   {{cat.category_name_en}}
                 </a>
-                <ul class="mega-menu">
-                  <li>
-
-                    <ul>
-                      <li class="dropdown-title">Accessories & Parts</li>
-                      <li><a href="#">Cables & Adapters</a></li>
-                      <li><a href="#">Batteries</a></li>
+                <ul class="mega-menu d-flex justify-content-center align-items-stretch" *ngIf="cat?.subcategory.length > 0">
+                  <li *ngFor="let subCategory of cat?.subcategory" class="dropdown-title">
+                    {{ subCategory.subcategory_name_en  }}
+                    <ul *ngIf="cat?.subsubcategory.length > 0">
+                      
+                      <li *ngFor="let subSubCat of cat?.subsubcategory">
+                        <a href="#">{{ subSubCat?.subsubcategory_name_en }}</a></li>
+                      <!-- <li><a href="#">Batteries</a></li>
                       <li><a href="#">Chargers</a></li>
-                      <li><a href="#">Bags & Cases</a></li>
+                      <li><a href="#">Bags & Cases</a></li> -->
                     </ul>
-                    <ul>
+                    <!-- <ul>
                       <li class="dropdown-title">Electronic Cigarettes</li>
                       <li><a href="#">Audio & Video</a></li>
                       <li><a href="#">Televisions</a></li>
                       <li><a href="#">TV Receivers</a></li>
                       <li><a href="#">Projectors</a></li>
                       <li><a href="#">Audio Amplifier Boards</a></li>
-                    </ul>
+                    </ul> -->
                   </li>
-                  <li>
+                  <!-- <li>
                     <ul>
                       <li class="dropdown-title">Smart Electronics</li>
                       <li><a href="#">Cables & Adapters</a></li>
@@ -354,7 +357,7 @@
                             alt=""></a>
                       </li>
                     </ul>
-                  </li>
+                  </li> -->
                 </ul>
 
               </li>
@@ -459,7 +462,7 @@
                     </a></li>
                 </ul>
               </li> -->
-              <li>
+              <!-- <li>
                 <ul class="more_slide_open">
                   <li><a href="#">
                       <div class="cat-menu-img"><img src="assets/img/product/category_menu_img01.png" alt=""></div>
@@ -475,7 +478,7 @@
                     </a></li>
                 </ul>
               </li>
-              <li class="more_categories">More Categories<i class="fas fa-angle-down"></i></li>
+              <li class="more_categories">More Categories<i class="fas fa-angle-down"></i></li> -->
 
             </ul>
           </div>
@@ -487,7 +490,8 @@
                 <input type="text" placeholder="{{ 'NAVBAR.FOOTERBAR.SEARCH.PLACEHOLDER' | translate }}">
                 <select class="custom-select">
                   <option selected="">{{ 'NAVBAR.FOOTERBAR.SEARCH.ALL-CATEGORY' | translate }}</option>
-                  <option>Women's Clothing</option>
+                  <option *ngFor="let option of category">{{ option?.category_name_en }}</option>
+                  <!-- <option>Women's Clothing</option>
                   <option>Men's Clothing</option>
                   <option>Computer & Office</option>
                   <option>Consumer Electronics</option>
@@ -499,7 +503,7 @@
                   <option>Home Appliances</option>
                   <option>Food</option>
                   <option>Underwear & Sleepwear</option>
-                  <option>In All Categories</option>
+                  <option>In All Categories</option> -->
                 </select>
                 <button><i class="flaticon-magnifying-glass-1"></i></button>
               </form>

@@ -31,6 +31,7 @@
               <thead>
               <tr>
                 <th class="product-thumbnail"></th>
+                <th class="product-thumbnail"></th>
                 <th class="product-name">Product</th>
                 <th class="product-price">Price</th>
                 <th class="product-quantity">QUANTITY</th>
@@ -38,11 +39,13 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let product of cartItems">
+              <tr *ngFor="let product of cartItems" class="text-center">
                 <td class="product-thumbnail">
-                  <a class="wishlist-remove d-inline-block" (click)="delete(product?.id)">
+                  <a class="wishlist-remove" (click)="delete(product?.id)">
                     <i class="pi pi-trash" style="font-size: 1.4rem"></i>
                   </a>
+                </td>
+                <td class="product-thumbnail">
                   <a [routerLink]="['/product-details',product['product']?.id]">
                     <img style="width: 103px; height: 129px" class="img-fluid d-inline-block  " [src]="imgPrefix + product['product']?.product_thambnail" [alt]="product['product']?.product_name_en">
                   </a>

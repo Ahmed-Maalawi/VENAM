@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { AuthService } from "../../services/auth.service";
 import { TranslateService } from '@ngx-translate/core';
 import { HomeService } from 'src/app/services/home.service';
+import { CartService } from 'src/app/services/cart.service';
 
 declare var $: any;
 @Component({
@@ -22,14 +23,14 @@ export class NavbarComponent implements OnInit {
   logoutMessage: string = '';
   currentUser: any;
   selectedCountry: country = { name: 'ar', code: 'EG', img: 'eg.svg', value: 'ar' };
-
+  cartLength: number = 0;
   cities: country[];
 
   filteredCat:any[]=[];
   category: any[] = [];
   subCategory: any[] = [];
   subSubCategory: any[] = [];
-  constructor(private _AuthService: AuthService, private _MessageService: MessageService, private _TranslateService: TranslateService, private _HomeService: HomeService) {
+  constructor(private _AuthService: AuthService, private _MessageService: MessageService, private _TranslateService: TranslateService, private _HomeService: HomeService, private _CartService: CartService) {
 
     this.cities = [
       { name: 'ar', code: 'EG', img: 'eg.svg', value: 'ar' },
@@ -97,15 +98,18 @@ export class NavbarComponent implements OnInit {
     }
 
   
-      this._HomeService.category().subscribe((response) => {
-        this.category = response.data
-      
-      })
+    this._HomeService.category().subscribe((response) => {
+      this.category = response.data
+    
+    })
 
-      // this._HomeService.subCategory().subscribe((response)=>
-      // {
-      //   this.subCategory=response.data
-      // })
+    // this._HomeService.subCategory().subscribe((response)=>
+    // {
+    //   this.subCategory=response.data
+    // })
+
+
+    this.cartLength = this._CartService.cartLength;
     
   }
 

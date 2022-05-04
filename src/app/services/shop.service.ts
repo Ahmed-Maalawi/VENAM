@@ -13,4 +13,9 @@ export class ShopService {
   {
     return this._HttpClient.get('https://medicazone.online/api/zone/getProducts');
   }
+
+  getDescount(): Observable <any>
+  {
+    return this._HttpClient.get('https://medicazone.online/api/zone/discount');
+  }
 }

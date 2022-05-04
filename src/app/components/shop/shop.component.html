@@ -34,12 +34,15 @@
               </div>
               <div class="shop-cat-list">
                 <ul>
-                  <li><a href="#">Accessories</a><span>27</span></li>
+                  <li *ngFor="let category of categoryArr">
+                    <a href="#"> category.category_name_en</a><span>27</span>
+                  </li>
+                  <!-- <li><a href="#">Accessories</a><span>27</span></li>
                   <li><a href="#">Leather Jacket</a><span>12</span></li>
                   <li><a href="#">Woman Hoodies</a><span>6</span></li>
                   <li><a href="#">Man Shoes</a><span>7</span></li>
                   <li><a href="#">Baby Troys</a><span>9</span></li>
-                  <li><a href="#">Kitchen Accessories</a><span>16</span></li>
+                  <li><a href="#">Kitchen Accessories</a><span>16</span></li> -->
                 </ul>
               </div>
             </div>
@@ -63,9 +66,11 @@
               <div class="sidebar-product-active">
                 <div class="sidebar-product-list">
                   <ul>
-                    <li>
+                    <li *ngFor="let product of descountItems">
                       <div class="sidebar-product-thumb">
-                        <a href="shop-details.html"><img src="assets/img/product/sidebar_product01.jpg" alt=""></a>
+                        <a href="shop-details.html">
+                          <img [src]="imgPrefix + product?.product_thambnail" alt="" class="img-fluid" style="width: 95px; height:84px">
+                        </a>
                       </div>
                       <div class="sidebar-product-content">
                         <div class="rating">
@@ -75,11 +80,11 @@
                           <i class="fas fa-star"></i>
                           <i class="fas fa-star"></i>
                         </div>
-                        <h5><a href="shop-details.html">Slim Fit Cotton</a></h5>
+                        <h5><a href="shop-details.html">{{product.product_name_en| slice:0:10}}...</a></h5>
                         <span>$ 39.00</span>
                       </div>
                     </li>
-                    <li>
+                    <!-- <li>
                       <div class="sidebar-product-thumb">
                         <a href="shop-details.html"><img src="assets/img/product/sidebar_product02.jpg" alt=""></a>
                       </div>
@@ -110,10 +115,10 @@
                         <h5><a href="shop-details.html">Slim Fit Cotton</a></h5>
                         <span>$ 39.00</span>
                       </div>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
-                <div class="sidebar-product-list">
+                <!-- <div class="sidebar-product-list">
                   <ul>
                     <li>
                       <div class="sidebar-product-thumb">
@@ -164,7 +169,7 @@
                       </div>
                     </li>
                   </ul>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="widget shop-widget mb-30">
